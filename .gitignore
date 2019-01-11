@@ -1,0 +1,44 @@
+# ignore macOS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+.AppleDouble
+.LSOverride
+
+#ignore excel macros files because they are too heavy.. Ill just upload the scripts
+#*.xlsm
+
+#*.tmp
+
+# Word temporary
+#~$*.doc*
+
+# Excel temporary
+#~$*.xls*
+
+# Excel Backup File
+#*.xlk
+
+# PowerPoint temporary
+#~$*.ppt*
+
+################
+# Ignoring the reports because those are too heavy to be uploaded.
+
+#FolderName/
+
+Datos/
+
+# ipynb_checkpoints
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+.ipynb_checkpoints/
+*checkpoint.ipynb
+
+#for the pycache
+*.pyc
+*.pyo
