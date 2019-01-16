@@ -86,3 +86,17 @@ We were hoping to analyze all the emergencies for all institutions but discovere
 The data set "urgencias" had a different format for every year reported. Several fixes had to be implemented to be able to unify the information and to run an automated analysis.
 
 ### Data Analysis
+We used five different data sets from different data sources to create this analysis. Data about population size and population insured came from INEGI and corresponds to the year 2015.
+
+We used two data sets about hospitals. The first one is a list of all the hospitals in Mexico and includes their location and size (hospitlas.csv), the second one is a data set that consists of 7 separate folders, of which we only used the files named “urgencias. This data set contains information on medical emergencies attended in public hospitals (SSA) all over Mexico.
+
+The last data set contains comparative data on hospital beds per capita in other countries and was obtained from a website.
+
+We filtered the information contained in "hospitals.csv" and the data set "urgencias" to analyze exclusiveley the information provided for Mexico City (cdmx).
+
+### Results
+
+The total population of Mexico City in 2015 was 8,851,080. The delegation with the largest number of people was Iztapalapa (Figure 1).
+
+![](https://github.com/joelsotelods/healthcare-data-analysis/blob/develop/figures/Total_population_by_delegation.png)
+
