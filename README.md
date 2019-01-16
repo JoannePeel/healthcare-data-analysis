@@ -99,4 +99,8 @@ We filtered the information contained in "hospitals.csv" and the data set "urgen
 The total population of Mexico City in 2015 was 8,851,080. The delegation with the largest number of people was Iztapalapa (Figure 1).
 
 ![](https://github.com/joelsotelods/healthcare-data-analysis/blob/develop/figures/Total_population_by_delegation.png)
+Figure 1. Population of Mexico City by delegation.
 
+More than 80% of the population in Mexico City have some form of health insurance (Figure 2). Only 18.7% of the population are uninsured.
+![](https://github.com/joelsotelods/healthcare-data-analysis/blob/develop/figures/insurance_percent.png)
+Figure 2. Percentage of population insured (by instittion) and uninsured. *IMSS: Instituto Mexicano de Seguro Social; ISSSTE: Instituto de Seguro Social de Trabajadores del Estado; SSA: Secretaria de Salud; SMP: Servicios Médicos Privados; PEMEX: Petróleos Mexicanos; Others: SEDENA, SEMAR, SME, etc.
