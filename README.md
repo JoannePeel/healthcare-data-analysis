@@ -1,6 +1,6 @@
 
 
-# Project Title: The ER Project
+# Project Title: Health Care Data Analysis
 
 ## Team Members: 
 
@@ -10,45 +10,79 @@
 
 ## Project Description/Outline:
 
-Triage, a concept developed and refined on the battlefield, has been central to the practice of emergency medicine for more than half a century. As emergency departments (EDs) face escalating patient volumes, persistent crowding, and patient populations with more complex disease, the need for accurate and reliable triage has intensified. 
+The Mexican healthcare system is divided into two sectors: private and public. 
 
-Mexico’s emergency departments have also faced an important increment in patients, with 5,751,797 attended in 2008, and more almost twice the amount (10,645,625 patients) in 2014.
+According to article 4° of the Mexican political constitution, healthcare is a basic right of all Mexicans. Workers who are or were employed formally, as well as their families, receive healthcare from social security institutions. IMSS covers 80% of this population, while ISSSTE covers 18%, and other institutions, such as PEMEX, SEDENA, and SEMAR, cover the rest. People without social security fall under the responsibility of the secretary for health (SSA) and represent about half of the population of the country. In 2008, there were 27 million insurance seekers affiliated to SSA, and 30 million people without healthcare insurance.
 
-To deal with the increased patient load Mexican hospitals implement triage systems. Triage systems with published evidence of widespread adoption include the Australasian Triage Scale (ATS), Canadian Triage and Acuity Scale (CTAS), Emergency Severity Index (ESI), Manchester Triage Scale (MTS), South African Triage Scale (SATS) and NEWS2. Currently, Mexican hospitals use MTS.
+Triage, a concept developed and refined on the battlefield, has been central to the practice of emergency medicine for more than half a century. As emergency departments (EDs) face escalating patient volumes, persistent crowding, and patient populations with more complex disease, the need for accurate and reliable triage has intensified.
 
-The objective of this project is to analyze data from INEGI, to determine the number of people insured by each institution in Mexico City (IMSS, ISSSTE, Seguro Popular and others); analyze the number of emergencies attended in Mexico City in the period from 2009-2016; calculate the increment rate of demand on emergency services; determine the number of qualified emergencies (real emergencies) and non-qualified emergencies (felt emergencies).
+Mexico’s emergency departments have faced an important increment in patients, with 5,751,797 attended in 2008, and almost twice the amount (10,645,625 patients) in 2014. To deal with the increased patient load Mexican hospitals implement triage systems. 
 
-Finally, we are going to propose an electronic case report form (eCRF), for emergency room admission, which will automatically calculate MTS, NEWS2, MEWS for pregnant women, and PEWS for pediatric patients.
+Triage systems with published evidence of widespread adoption include the Australasian Triage Scale (ATS), Canadian Triage and Acuity Scale (CTAS), Emergency Severity Index (ESI), Manchester Triage Scale (MTS), South African Triage Scale (SATS) and NEWS2. Currently, Mexican hospitals use MTS.
+
+Two thirds of Mexico’s population is urbanized and 35% of the population lives in nine metropolitan areas. Therefore, the objectives of this project were to analyze data from INEGI and the secretary of health: 
+
+(1) to determine the number of people insured by each institution in Mexico City (IMSS, ISSSTE, SSA and others); 
+
+(2) to determine the number and distribution of hospitals in the city and the institutions they belong to; 
+
+(3) to determine the number of hospital beds per 1000 capita by institution (based on insured population) and by delegation (based on population)
+
+(4) to analyze the number of emergencies attended in Mexico City in the period from 2009-2016; 
+(5) to calculate the increment rate of demand on emergency services; 
+
+(6) to quantify emergencies by type and delegation.
+
+Finally, for the final phase of this project we are going to propose an electronic case report form (eCRF), for emergency room admission, which will automatically calculate different triage scales (MTS, NEWS2, MEWS for pregnant women, and PEWS for pediatric patients) and facilitate ordered attendance of a large number of patients.
+
+Our hypothesis are that the public healthcare institutions face a high demand of patients (low beds per capita index); that demand of emergency services is increasing; and that a large number of emergencies attended in hospitals are unqualified emergencies.
+
+
 
 ---
 
-## Research Questions to Answer
+## Research Questions to Answer & Data Sets to be Used
 
-- The percentage of people insured thorugh each of the health institutions in Mexico City
-- The number of people attended each year in the emergency departments of each institution in Mexico City
-- The number of real emergencies attended vs. "felt emergencies"
-- Increase rate of patients attended in the emergency departments
+1.	How many people in Mexico City have insurance through each of the public institutions institution in Mexico City (IMSS, ISSSTE, SSA and others)? 
+Data: INEGI https://www.inegi.org.mx/app/tabulados/pxweb/inicio.html?rxid=857b90d2-9e40-4741-8e2e-a5655d78437e&db=Derechohabiencia&px=Derechohabiencia_02
+2.	How many hospitals are there in Mexico City, where are they distributed (delegations), and which institutions they belong to?
+Data: http://www.dgis.salud.gob.mx/contenidos/intercambio/clues_gobmx.html
+3.	How many hospital beds per 1000 capita are there by institution (based on insured population) and by delegation (based on population)?
+Data: http://www.dgis.salud.gob.mx/contenidos/intercambio/clues_gobmx.html
+https://www.inegi.org.mx/app/tabulados/pxweb/inicio.html?rxid=857b90d2-9e40-4741-8e2e-a5655d78437e&db=Derechohabiencia&px=Derechohabiencia_02 http://internet.contenidos.inegi.org.mx/contenidos/productos/prod_serv/contenidos/espanol/bvinegi/productos/nueva_estruc/anuarios_2015/702825076924.pdf
 
-## Data Sets to be Used
+4.	How many emergencies did each of the institutions attend in Mexico City in the period from 2009-2016?
+Data: 
+https://datos.gob.mx/busca/dataset/urgencias 
+5.	How much did the demand on emergency services increase in the 7 years analyzed?
+Data:  
+https://datos.gob.mx/busca/dataset/urgencias 
 
-- INEGI API: 
-- Datos de Urgencias - gob.mx -  https://datos.gob.mx/busca/dataset/urgencias
+6.	Which were the most frequent emergencies? Which delegation attended more emergencies and what kind?
+Data:  
+https://datos.gob.mx/busca/dataset/urgencias 
+http://www.dgis.salud.gob.mx/contenidos/intercambio/clues_gobmx.html
 
 
 ## Rough Breakdown of Tasks:
 
 ### INEGI Data analysis
     
-    1. To get the information from the INEGI API.
+    1. To get the information from the INEGI and government websites.
 
-    2. To understand and map the INEGI API to a data frame on Pandas.
+    2. Understand, filter and cleanup the data, using pandas dataframes.
 
     3. Visualize the results using matplotlib
 
-### Emergencies Data analysis
+### Data Cleanup & Exploration
 
-just a test
+print code here for clean up...and comment the code
 
-### Electronic case report form
+### Discuss insights you had while exploring the data that you didn't anticipate
 
-Danie> just a test
+We were hoping to analyze all the emergencies for all institutions but discovered that the data set “urgencias” only contained data for SSA, but not for the other instutions analyzed.
+
+### Discuss any problems that arose after exploring the data, and how you resolved them
+The data set "urgencias" had a different format for every year reported. Several fixes had to be implemented to be able to unify the information and to run an automated analysis.
+
+### Data Analysis
