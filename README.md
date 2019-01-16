@@ -88,7 +88,7 @@ The data set "urgencias" had a different format for every year reported. Several
 ### Data Analysis
 We used five different data sets from different data sources to create this analysis. Data about population size and population insured came from INEGI and corresponds to the year 2015.
 
-We used two data sets about hospitals. The first one is a list of all the hospitals in Mexico and includes their location and size (hospitlas.csv), the second one is a data set that consists of 7 separate folders, of which we only used the files named “urgencias. This data set contains information on medical emergencies attended in public hospitals (SSA) all over Mexico.
+We used two data sets about hospitals. The first one is a list of all the hospitals in Mexico and includes their location and size (hospitlas.csv) from 2015, the second one is a data set that consists of 7 separate folders, of which we only used the files named “urgencias. This data set contains information on medical emergencies attended in public hospitals (SSA) all over Mexico in the period from 2009 to 2016.
 
 The last data set contains comparative data on hospital beds per capita in other countries and was obtained from a website.
 
