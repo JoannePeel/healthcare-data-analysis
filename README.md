@@ -117,9 +117,11 @@ Figure 5 (beds per capita delegación)
 Figure 6 (bed per capita institución)
 ![](https://github.com/joelsotelods/healthcare-data-analysis/blob/develop/figures/beds_capita_institution_compared_hor.png)
 
-Tabla comparativa (beds per capita institución)
-| Other Countries | Beds per 1000 | 
-| -------------   |:-------------:| 
-| EU Average      | 6.42          |
-| USA Average     | 3.30          |   
-| El Salvador Avr.| 1.65          |   
+## Tabla comparativa (beds per capita institución)
+
+|Other Countries|Beds per 1000|
+|-------------|-------------|
+|**EU Average**|6.42|
+|**USA Average**|3.30|
+|**El Salvador Avr.**|1.65|
+
