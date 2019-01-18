@@ -14,7 +14,7 @@ The Mexican healthcare system is divided into two sectors: private and public.
 
 According to article 4° of the Mexican political constitution, healthcare is a basic right of all Mexicans. Workers who are or were employed formally, as well as their families, receive healthcare from social security institutions. IMSS covers 80% of this population, while ISSSTE covers 18%, and other institutions, such as PEMEX, SEDENA, and SEMAR, cover the rest. People without social security fall under the responsibility of the secretary for health (SSA) and represent about half of the population of the country. In 2008, there were 27 million insurance seekers affiliated to SSA, and 30 million people without healthcare insurance.
 
-Mexico’s emergency departments have faced an important increment in patients, with 5,751,797 attended in 2008, and almost twice the amount (10,645,625 patients) in 2014. To deal with the increased patient load Mexican hospitals implement triage systems. Triage, is a concept developed and refined on the battlefield, has been central to the practice of emergency medicine for more than half a century. 
+Mexico’s emergency departments have faced an important increment in patients, with 5,751,797 attended in 2008, and almost twice the amount (10,645,625 patients) in 2014. To deal with the increased patient load Mexican hospitals implement triage systems. Triage, is a concept developed and refined on the battlefield, and has been central to the practice of emergency medicine for more than half a century. 
 
 Triage systems with published evidence of widespread adoption include the Australasian Triage Scale (ATS), Canadian Triage and Acuity Scale (CTAS), Emergency Severity Index (ESI), Manchester Triage Scale (MTS), South African Triage Scale (SATS) and NEWS2. Currently, Mexican hospitals use MTS standard to deal with patients.
 
@@ -27,6 +27,7 @@ Two thirds of Mexico’s population is urbanized and 35% of the population lives
 (3) to determine the number of hospital beds per 1000 capita by institution (based on insured population) and by delegation (based on population)
 
 (4) to analyze the number of emergencies attended in Mexico City in the period from 2009-2016; 
+
 (5) to calculate the increment rate of demand on emergency services; 
 
 (6) to quantify emergencies by type and delegation.
