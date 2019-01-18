@@ -8,9 +8,11 @@
 
 ## Project Description/Outline:
 
+According to article 4° of the Mexican political constitution, healthcare is a **basic right of all Mexicans**. Workers who are or were employed formally, as well as their families, receive healthcare from social security institutions. 
+
 The Mexican healthcare system is divided into two sectors: **private and public**. 
 
-According to article 4° of the Mexican political constitution, healthcare is a **basic right of all Mexicans**. Workers who are or were employed formally, as well as their families, receive healthcare from social security institutions. IMSS covers 80% of this population, while ISSSTE covers 18%, and other institutions, such as PEMEX, SEDENA, and SEMAR, cover the rest. People without social security fall under the responsibility of the secretary for health (SSA) and represent about half of the population of the country. In 2008, there were 27 million insurance seekers affiliated to SSA, and 30 million people without healthcare insurance.
+**IMSS covers 80% of this population**, while ISSSTE covers **18% of this population**, and other institutions, such as PEMEX, SEDENA, and SEMAR, cover the rest. **People without social security fall under the responsibility of the _Secretary for Health (SSA)_ and represent about half of the population of the country**. In 2008, there were **27 million insurance seekers affiliated to SSA, and 30 million people without healthcare insurance**.
 
 Triage, a concept developed and refined on the battlefield, has been central to the practice of emergency medicine for more than half a century. As emergency departments (EDs) face escalating patient volumes, persistent crowding, and patient populations with more complex disease, the need for accurate and reliable triage has intensified.
 
