@@ -22,6 +22,8 @@ People without social security fall under the responsibility of the _Secretary f
 - **27 million insurance seekers affiliated to SSA.**
 - **30 million people without healthcare insurance.**
 
+**Mexico’s emergency departments** have faced an important increment in patients, with **5,751,797 patients in 2008**, and almost twice the amount: **10,645,625 patients in 2014**. To deal with the increased patient load Mexican hospitals implement triage systems. 
+
 **Triage**, a concept developed and refined on the battlefield, has been central to the practice of emergency medicine for more than half a century. As _Emergency departments (EDs)_ face escalating patient volumes, persistent crowding, and patient populations with more complex disease, the need for accurate and reliable triage has intensified.
 
 **Triage systems** with published evidence of widespread adoption include: 
@@ -32,8 +34,6 @@ People without social security fall under the responsibility of the _Secretary f
 - South African Triage Scale (SATS) and NEWS2. 
 
 Currently, Mexican hospitals use **Manchester Triage Scale (MTS)**.
-
-**Mexico’s emergency departments** have faced an important increment in patients, with **5,751,797 patients in 2008**, and almost twice the amount: **10,645,625 patients in 2014**. To deal with the increased patient load Mexican hospitals implement triage systems. 
 
 Two thirds of Mexico's population is urbanized and 35% of the population lives in nine metropolitan areas. Therefore, the objectives of this project were to analyze data from _Instituto Nacional de Estadística y Geografía (INEGI)_ and _Secretary for Health (SSA)_: 
 
@@ -133,17 +133,23 @@ The majority of hospitals in Mexico City are private (SMP). Within the public in
 ![](https://github.com/joelsotelods/healthcare-data-analysis/blob/develop/figures/hospitals_institution_hor.png)
 Figure 4. Number of hospitals in Mexico City by institution.
 
-Miguel Hidalgo and Cauthemoc have the highest amount of beds per capita (Fig. 5).
-![](https://github.com/joelsotelods/healthcare-data-analysis/blob/develop/figures/number_of_bed_by_delegation_capita.png)
-Figure 5. Hospital beds per thousand by delegation in Mexico City.
+However, institutions are not evenly distributed throughout delegations (Fig. 5). For example, Cuajimalpa only has private hospitals (after an explosion in the only public hospital in early 2015), while la Magdalena Contreras, Venustiano Carranza, Tlahuac and Xochimilco only have public hospitals belonging to SSA.
 
-Private institutions have the highest per capita index per thousand with more than 9 beds per insured person. ISSSTE has the lowest number of beds per capita in Mexico City. The average for the city is 2.5 hospital beds per 1000 (Fig. 6).
+![](https://github.com/joelsotelods/healthcare-data-analysis/blob/develop/figures/stacked_beds_by_institution_and_delegation.png)
+Figure 5. Percentage of institutions presence in Mexico City by delegation
+
+Miguel Hidalgo and Cauthemoc have the highest amount of beds per capita (Fig. 6).
+![](https://github.com/joelsotelods/healthcare-data-analysis/blob/develop/figures/number_of_bed_by_delegation_capita.png)
+Figure 6. Hospital beds per thousand by delegation in Mexico City.
+
+Private institutions have the highest per capita index per thousand with more than 9 beds per insured person. ISSSTE has the lowest number of beds per capita in Mexico City. The average for the city is 2.5 hospital beds per 1000 (Fig. 7).
 ![](https://github.com/joelsotelods/healthcare-data-analysis/blob/develop/figures/beds_capita_institution_hor.png)
-Figure 6. Hospital beds per thousand by institution in Mexico City (dotted line: Mexico City average).
+Figure 7. Hospital beds per thousand by institution in Mexico City (dotted line: Mexico City average).
+
 ## Tabla comparativa (beds per capita institución)
 Table 1 shows beds per capita for other countries. ISSSTE and IMSS are comparable to the average of El Salvador, while SSA is comparable to the average in the USA.
 
-Table 1.
+Table 1. Comparative values of beds per thousand.
 
 |Other Countries|Beds per 1000|
 |-------------|-------------|
@@ -151,3 +157,45 @@ Table 1.
 |**USA Average**|3.30|
 |**El Salvador Avr.**|1.65|
 
+Figure 8 shows the number of medical emergencies by year in Mexico City (only SSA). Demand of emergency services has been increasing (table 2) and in 2014 SSA hospitals attended a total of 1,011,306 emergencies.
+
+![](https://github.com/joelsotelods/healthcare-data-analysis/blob/develop/figures/emergencies_hospital_day.png)
+Figure 8. Emergencies by year attended in SSA hospitals in Mexico City.
+
+Table 2. Number of emergencies attended by SSA hospitals and increment rate.
+
+|YEAR |	Number of emergencies| Increment rate|
+|-----|----------------------|---------------|	
+|**2009**| 	    678490| 	NaN     |
+|**2010**| 	    693937| 	0.02    |
+|**2011** |	    745451| 	0.07    |
+|**2012** |	    928403| 	0.25    |
+|**2013** |	    970825| 	0.05    |
+|**2014** |	    1011306| 	0.04    |
+|**2015** |	    964884| 	-0.05   |
+|**2016** |	    936145| 	-0.03   |
+
+Figure 9 shows the number of emergencies by delegation. Gustavo A. Madero was the delgation with the highest number of emergencies, followed by Cuathemoc. This may be related to the number of hospitals and their size in these delgations.
+![](https://github.com/joelsotelods/healthcare-data-analysis/blob/develop/figures/emergencies_delegation.png)
+Figure 9. Number of emergencies attended by SSA hospitals by delegation.
+
+The most common emergency was "medical" (Fig. 10), and only 4.9% (336095 emergencies) were non-qualified emergencies.
+
+![](https://github.com/joelsotelods/healthcare-data-analysis/blob/develop/figures/motate.png)
+Figure 10. Motives for attention in emergency rooms of SSA hospitals in Mexico City.
+
+Figure 11 shows the percentage of motives of attention by delegation. However, this data reflects the nature of the hospitals found. For example, shows a high percentage of gynecological emergencies, which corresponds to the presence of a maternal ward in this are.
+
+![](https://github.com/joelsotelods/healthcare-data-analysis/blob/develop/figures/motate_percent.png)
+Figure 11. Percentage of motives of atention in emergency rooms of SSA hospitals in Mexico City by delegation.
+
+Finally, to show the demand of emergency services, we calculated an average of emergencies per day attended by hospital for each year studied (Fig. 12). In the studied period, hospitals attended on average between 27 and 41 emergencies per day.
+
+![](https://github.com/joelsotelods/healthcare-data-analysis/blob/develop/figures/emergencies_hospital_day.png)
+Figure 12. Average emergencies attended by hospital per day.
+
+### Conclusions
+Most of Mexico City's hospitals are private.
+The public hospitals with the highest patient loads are ISSSTE and IMSS. SSA beds per 1000 is comparable to the USA. Patient load (emergencies attended) has increased by a third in the studied period for SSA hospitals. There was no data available for other institutions.
+
+Less than 5% of the emergencies reported were non-qualified. SSA hospitals attend on average between 27 and 41 emergencies per day.
