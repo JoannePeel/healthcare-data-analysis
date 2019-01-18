@@ -105,20 +105,25 @@ More than 80% of the population in Mexico City have some form of health insuranc
 ![](https://github.com/joelsotelods/healthcare-data-analysis/blob/develop/figures/insurance_percent.png)
 Figure 2. Percentage of population insured (by instittion) and uninsured. *IMSS: Instituto Mexicano de Seguro Social; ISSSTE: Instituto de Seguro Social de Trabajadores del Estado; SSA: Secretaria de Salud; SMP: Servicios Médicos Privados; PEMEX: Petróleos Mexicanos; Others: SEDENA, SEMAR, SME, etc.
 
-Figure 3
+Iztapalapa is the delegation with most hospitals in Mexico City, while Magdalena Contreras and Cuajimalpa are the delegations with less hospitals (Fig. 3).
 ![](https://github.com/joelsotelods/healthcare-data-analysis/blob/develop/figures/number_of_hospitals_by_delegation.png)
+Figure 3. Number of hospitals in Mexico City by delegation.
 
-Figure 4
+The majority of hospitals in Mexico City are private (SMP). Within the public institutions, SSA is the one that has the most hospitals in the City, while PEMEX and ISSSTE have the fewest (Fig. 4).
 ![](https://github.com/joelsotelods/healthcare-data-analysis/blob/develop/figures/hospitals_institution_hor.png)
+Figure 4. Number of hospitals in Mexico City by institution.
 
-Figure 5 (beds per capita delegación)
+Miguel Hidalgo and Cauthemoc have the highest amount of beds per capita (Fig. 5).
 ![](https://github.com/joelsotelods/healthcare-data-analysis/blob/develop/figures/number_of_bed_by_delegation_capita.png)
+Figure 5. Hospital beds per thousand by delegation in Mexico City.
 
-Figure 6 (bed per capita institución)
-![](https://github.com/joelsotelods/healthcare-data-analysis/blob/develop/figures/beds_capita_institution_compared_hor.png)
-
+Private institutions have the highest per capita index per thousand with more than 9 beds per insured person. ISSSTE has the lowest number of beds per capita in Mexico City. The average for the city is 2.5 hospital beds per 1000 (Fig. 6).
+![](https://github.com/joelsotelods/healthcare-data-analysis/blob/develop/figures/beds_capita_institution_hor.png)
+Figure 6. Hospital beds per thousand by institution in Mexico City (dotted line: Mexico City average).
 ## Tabla comparativa (beds per capita institución)
+Table 1 shows beds per capita for other countries. ISSSTE and IMSS are comparable to the average of El Salvador, while SSA is comparable to the average in the USA.
 
+Table 1.
 |Other Countries|Beds per 1000|
 |-------------|-------------|
 |**EU Average**|6.42|
