@@ -1,11 +1,11 @@
 
 # Health Care Data Analysis
 
-## Team Members 
+## Authors 
+* Joanne Peel
+* Daniel Cespedes
+* Joel Sotelo
 
-- Joanne Peel
-- Daniel Cespedes
-- Joel Sotelo
 ## Project Outline
 The Mexican healthcare system is divided into two sectors: **private and public**. 
 
@@ -13,181 +13,108 @@ According to article 4° of the Mexican political constitution healthcare is a *
 
 Workers who are or were employed formally, as well as their families, receive healthcare from social security institutions: 
 
-- IMSS covers 80% of this population.
-- ISSSTE covers 18%of this population.
-- Other institutions, such as PEMEX, SEDENA, and SEMAR, cover the rest. 
+- 80% of this population is covered by _Instituto Mexicano del Seguro Social (IMSS)_.
+- 18% of this population is covered by _Instituto de Seguridad y Servicios Sociales de los Trabajadores del Estado (ISSSTE)_.
+- The rest is covered by other institutions: _Petróleos Mexicanos (PEMEX)_, _Secretaría de la Defensa Nacional (SEDENA)_, and _Secretaría de Marina (SEMAR)_.
 
-People without social security fall under the responsibility of the **_Secretary for Health (SSA)_** and represent about half of the population of the country. In 2008, there were: 
-- 27 million insurance seekers affiliated to SSA.
-- 30 million people without healthcare insurance.
 
-**Triage**, a concept developed and refined on the battlefield, has been central to the practice of emergency medicine for more than half a century. As **_Emergency departments (EDs)_** face escalating patient volumes, persistent crowding, and patient populations with more complex disease, the need for accurate and reliable triage has intensified.
+People without social security fall under the responsibility of the _Secretary for Health (SSA)_ and represent about half of the population of the country. In 2008, there were: 
+- **27 million insurance seekers affiliated to SSA.**
+- **30 million people without healthcare insurance.**
 
-**Mexico’s emergency departments** have faced an important increment in patients, with 5,751,797 attended in 2008, and almost twice the amount (10,645,625 patients) in 2014. To deal with the increased patient load Mexican hospitals implement triage systems. 
+**Triage**, a concept developed and refined on the battlefield, has been central to the practice of emergency medicine for more than half a century. As _Emergency departments (EDs)_ face escalating patient volumes, persistent crowding, and patient populations with more complex disease, the need for accurate and reliable triage has intensified.
 
-Triage systems with published evidence of widespread adoption include the Australasian Triage Scale (ATS), Canadian Triage and Acuity Scale (CTAS), Emergency Severity Index (ESI), Manchester Triage Scale (MTS), South African Triage Scale (SATS) and NEWS2. Currently, Mexican hospitals use MTS.
+**Triage systems** with published evidence of widespread adoption include: 
+- Australasian Triage Scale (ATS). 
+- Canadian Triage and Acuity Scale (CTAS). 
+- Emergency Severity Index (ESI).
+- Manchester Triage Scale (MTS). 
+- South African Triage Scale (SATS) and NEWS2. 
 
-Two thirds of Mexico’s population is urbanized and 35% of the population lives in nine metropolitan areas. Therefore, the objectives of this project were to analyze data from INEGI and the secretary of health: 
+Currently, Mexican hospitals use **Manchester Triage Scale (MTS)**.
 
-(1) to determine the number of people insured by each institution in Mexico City (IMSS, ISSSTE, SSA and others); 
+**Mexico’s emergency departments** have faced an important increment in patients, with **5,751,797 patients in 2008**, and almost twice the amount: **10,645,625 patients in 2014**. To deal with the increased patient load Mexican hospitals implement triage systems. 
 
-(2) to determine the number and distribution of hospitals in the city and the institutions they belong to; 
+Two thirds of Mexico's population is urbanized and 35% of the population lives in nine metropolitan areas. Therefore, the objectives of this project were to analyze data from _Instituto Nacional de Estadística y Geografía (INEGI)_ and _Secretary for Health (SSA)_: 
 
-(3) to determine the number of hospital beds per 1000 capita by institution (based on insured population) and by delegation (based on population)
+1. To determine the number of people insured by each institution in Mexico City (IMSS, ISSSTE, SSA and others).
 
-(4) to analyze the number of emergencies attended in Mexico City in the period from 2009-2016; 
-(5) to calculate the increment rate of demand on emergency services; 
+2. To determine the number and distribution of hospitals in the city and the institutions they belong to.
 
-(6) to quantify emergencies by type and delegation.
+3. To determine the number of hospital beds per 1000 capita by institution (based on insured population) and by delegation (based on population).
 
-Finally, for the final phase of this project we are going to propose an electronic case report form (eCRF), for emergency room admission, which will automatically calculate different triage scales (MTS, NEWS2, MEWS for pregnant women, and PEWS for pediatric patients) and facilitate ordered attendance of a large number of patients.
+4. To analyze the number of emergencies attended in Mexico City in the period from 2009-2016. 
+
+5. To calculate the increment rate of demand on emergency services. 
+
+6. To quantify emergencies by type and delegation.
+
+Lastly, for the final phase of this project we are going to propose an _Electronic Case Report (eCRF)_, for emergency room admission, which will automatically calculate different Triage scales (MTS, NEWS2, MEWS for pregnant women, and PEWS for pediatric patients) and facilitate ordered attendance of a large number of patients.
 
 Our hypothesis are that the public healthcare institutions face a high demand of patients (low beds per capita index); that demand of emergency services is increasing; and that a large number of emergencies attended in hospitals are unqualified emergencies.
-
-### Prerequisites
-
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
-## Authors
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
-
-
-
-
-
-
-
-
 
 ---
 
 ## Research Questions to Answer & Data Sets to be Used
 
 1.	How many people in Mexico City have insurance through each of the public institutions institution in Mexico City (IMSS, ISSSTE, SSA and others)? 
-Data: INEGI https://www.inegi.org.mx/app/tabulados/pxweb/inicio.html?rxid=857b90d2-9e40-4741-8e2e-a5655d78437e&db=Derechohabiencia&px=Derechohabiencia_02
+    
+    Data: [INEGI](https://www.inegi.org.mx/app/tabulados/pxweb/inicio.html?rxid=857b90d2-9e40-4741-8e2e-a5655d78437e&db=Derechohabiencia&px=Derechohabiencia_02)
+
+
 2.	How many hospitals are there in Mexico City, where are they distributed (delegations), and which institutions they belong to?
-Data: http://www.dgis.salud.gob.mx/contenidos/intercambio/clues_gobmx.html
+
+    Data: [DGIS](http://www.dgis.salud.gob.mx/contenidos/intercambio/clues_gobmx.html) 
+
 3.	How many hospital beds per 1000 capita are there by institution (based on insured population) and by delegation (based on population)?
-Data: http://www.dgis.salud.gob.mx/contenidos/intercambio/clues_gobmx.html
-https://www.inegi.org.mx/app/tabulados/pxweb/inicio.html?rxid=857b90d2-9e40-4741-8e2e-a5655d78437e&db=Derechohabiencia&px=Derechohabiencia_02 http://internet.contenidos.inegi.org.mx/contenidos/productos/prod_serv/contenidos/espanol/bvinegi/productos/nueva_estruc/anuarios_2015/702825076924.pdf
+    
+    Data: [DGIS_Institution](http://www.dgis.salud.gob.mx/contenidos/intercambio/clues_gobmx.html) | Data: [INEGI tabulados](https://www.inegi.org.mx/app/tabulados/pxweb/inicio.html?rxid=857b90d2-9e40-4741-8e2e-a5655d78437e&db=Derechohabiencia&px=Derechohabiencia_02) | Data: [INEGI per capita](http://internet.contenidos.inegi.org.mx/contenidos/productos/prod_serv/contenidos/espanol/bvinegi/productos/nueva_estruc/anuarios_2015/702825076924.pdf)
 
 4.	How many emergencies did each of the institutions attend in Mexico City in the period from 2009-2016?
-Data: 
-https://datos.gob.mx/busca/dataset/urgencias 
-5.	How much did the demand on emergency services increase in the 7 years analyzed?
-Data:  
-https://datos.gob.mx/busca/dataset/urgencias 
-
-6.	Which were the most frequent emergencies? Which delegation attended more emergencies and what kind?
-Data:  
-https://datos.gob.mx/busca/dataset/urgencias 
-http://www.dgis.salud.gob.mx/contenidos/intercambio/clues_gobmx.html
-
-
-## Rough Breakdown of Tasks:
-
-### INEGI Data analysis
     
-    1. To get the information from the INEGI and government websites.
+    Data: [Datos Gobierno Mexico](https://datos.gob.mx/busca/dataset/urgencias) 
 
-    2. Understand, filter and cleanup the data, using pandas dataframes.
+5.	How much did the demand on emergency services increase in the 7 years analyzed?  
+    
+    Data: [Datos Gobierno Mexico](https://datos.gob.mx/busca/dataset/urgencias)
 
-    3. Visualize the results using matplotlib
+6.	Which were the most frequent emergencies? Which delegation attended more emergencies and what kind
 
-### Data Cleanup & Exploration
+    Data: [Datos Gobierno Mexico](https://datos.gob.mx/busca/dataset/urgencias)
+    | Data: [DGIS_Salud](http://www.dgis.salud.gobmx/contenidos/intercambio/clues_gobmx.html)
+
+---
+
+## Breakdown of Tasks
+
+### **INEGI Data analysis** 
+    
+1. To get the information from the INEGI and government websites.
+
+2. Understand, filter and cleanup the data, using Pandas dataframes.
+
+3. Visualize the results using matplotlib.
+
+### **Data Cleanup & Exploration**
 
 print code here for clean up...and comment the code
 
-### Discuss insights you had while exploring the data that you didn't anticipate
+### **Discussion of insights while exploring the data**
 
-We were hoping to analyze all the emergencies for all institutions but discovered that the data set “urgencias” only contained data for SSA, but not for the other instutions analyzed.
+- We were hoping to analyze all the emergencies for all institutions but discovered that the data set “urgencias” only contained data for SSA, but not for the other instutions analyzed.
+- The data set "urgencias" had a different format for every year reported. Several fixes had to be implemented to be able to unify the information and to run an automated analysis.
 
-### Discuss any problems that arose after exploring the data, and how you resolved them
-The data set "urgencias" had a different format for every year reported. Several fixes had to be implemented to be able to unify the information and to run an automated analysis.
+### **Data Analysis**
+- We used five different data sets from different data sources to create this analysis. Data about population size and population insured came from INEGI and corresponds to the year 2015.
 
-### Data Analysis
-We used five different data sets from different data sources to create this analysis. Data about population size and population insured came from INEGI and corresponds to the year 2015.
+- We used two data sets about hospitals: 
+    - The first one is a list of all the hospitals in Mexico and includes their location and size (hospitlas.csv) from 2015. 
+    - The second one is a data set that consists of 7 separate folders, of which we only used the files named “urgencias". This data set contains information on medical emergencies attended in public hospitals (SSA) all over Mexico in the period from 2009 to 2016.
+    - The last data set contains comparative data on hospital beds per capita in other countries and was obtained from a website.
 
-We used two data sets about hospitals. The first one is a list of all the hospitals in Mexico and includes their location and size (hospitlas.csv) from 2015, the second one is a data set that consists of 7 separate folders, of which we only used the files named “urgencias. This data set contains information on medical emergencies attended in public hospitals (SSA) all over Mexico in the period from 2009 to 2016.
+- We filtered the information contained in "hospitals.csv" and the data set "urgencias" to analyze exclusiveley the information provided for Mexico City (cdmx).
 
-The last data set contains comparative data on hospital beds per capita in other countries and was obtained from a website.
-
-We filtered the information contained in "hospitals.csv" and the data set "urgencias" to analyze exclusiveley the information provided for Mexico City (cdmx).
-
-### Results
+### **Results**
 
 The total population of Mexico City in 2015 was 8,851,080. The delegation with the largest number of people was Iztapalapa (Figure 1).
 
