@@ -1,22 +1,29 @@
-# Project Title: Health Care Data Analysis
 
-## Team Members: 
+# Health Care Data Analysis
+
+## Team Members 
 
 - Joanne Peel
 - Daniel Cespedes
 - Joel Sotelo
-
-## Project Description/Outline:
-
-According to article 4° of the Mexican political constitution, healthcare is a **basic right of all Mexicans**. Workers who are or were employed formally, as well as their families, receive healthcare from social security institutions. 
-
+## Project Outline
 The Mexican healthcare system is divided into two sectors: **private and public**. 
 
-**IMSS covers 80% of this population**, while ISSSTE covers **18% of this population**, and other institutions, such as PEMEX, SEDENA, and SEMAR, cover the rest. **People without social security fall under the responsibility of the _Secretary for Health (SSA)_ and represent about half of the population of the country**. In 2008, there were **27 million insurance seekers affiliated to SSA, and 30 million people without healthcare insurance**.
+According to article 4° of the Mexican political constitution healthcare is a **basic right of all Mexican citizens**. 
 
-Triage, a concept developed and refined on the battlefield, has been central to the practice of emergency medicine for more than half a century. As emergency departments (EDs) face escalating patient volumes, persistent crowding, and patient populations with more complex disease, the need for accurate and reliable triage has intensified.
+Workers who are or were employed formally, as well as their families, receive healthcare from social security institutions: 
 
-Mexico’s emergency departments have faced an important increment in patients, with 5,751,797 attended in 2008, and almost twice the amount (10,645,625 patients) in 2014. To deal with the increased patient load Mexican hospitals implement triage systems. 
+- IMSS covers 80% of this population.
+- ISSSTE covers 18%of this population.
+- Other institutions, such as PEMEX, SEDENA, and SEMAR, cover the rest. 
+
+People without social security fall under the responsibility of the **_Secretary for Health (SSA)_** and represent about half of the population of the country. In 2008, there were: 
+- 27 million insurance seekers affiliated to SSA.
+- 30 million people without healthcare insurance.
+
+**Triage**, a concept developed and refined on the battlefield, has been central to the practice of emergency medicine for more than half a century. As **_Emergency departments (EDs)_** face escalating patient volumes, persistent crowding, and patient populations with more complex disease, the need for accurate and reliable triage has intensified.
+
+**Mexico’s emergency departments** have faced an important increment in patients, with 5,751,797 attended in 2008, and almost twice the amount (10,645,625 patients) in 2014. To deal with the increased patient load Mexican hospitals implement triage systems. 
 
 Triage systems with published evidence of widespread adoption include the Australasian Triage Scale (ATS), Canadian Triage and Acuity Scale (CTAS), Emergency Severity Index (ESI), Manchester Triage Scale (MTS), South African Triage Scale (SATS) and NEWS2. Currently, Mexican hospitals use MTS.
 
@@ -36,6 +43,92 @@ Two thirds of Mexico’s population is urbanized and 35% of the population lives
 Finally, for the final phase of this project we are going to propose an electronic case report form (eCRF), for emergency room admission, which will automatically calculate different triage scales (MTS, NEWS2, MEWS for pregnant women, and PEWS for pediatric patients) and facilitate ordered attendance of a large number of patients.
 
 Our hypothesis are that the public healthcare institutions face a high demand of patients (low beds per capita index); that demand of emergency services is increasing; and that a large number of emergencies attended in hospitals are unqualified emergencies.
+
+### Prerequisites
+
+What things you need to install the software and how to install them
+
+```
+Give examples
+```
+
+### Installing
+
+A step by step series of examples that tell you how to get a development env running
+
+Say what the step will be
+
+```
+Give the example
+```
+
+And repeat
+
+```
+until finished
+```
+
+End with an example of getting some data out of the system or using it for a little demo
+
+## Running the tests
+
+Explain how to run the automated tests for this system
+
+### Break down into end to end tests
+
+Explain what these tests test and why
+
+```
+Give an example
+```
+
+### And coding style tests
+
+Explain what these tests test and why
+
+```
+Give an example
+```
+
+## Deployment
+
+Add additional notes about how to deploy this on a live system
+
+## Built With
+
+* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
+* [Maven](https://maven.apache.org/) - Dependency Management
+* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+
+## Contributing
+
+Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+
+## Versioning
+
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+
+## Authors
+
+* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+
+See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+
+* Hat tip to anyone whose code was used
+* Inspiration
+* etc
+
+
+
+
+
+
 
 
 
