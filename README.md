@@ -124,6 +124,7 @@ Figure 6. Hospital beds per thousand by institution in Mexico City (dotted line:
 Table 1 shows beds per capita for other countries. ISSSTE and IMSS are comparable to the average of El Salvador, while SSA is comparable to the average in the USA.
 
 Table 1.
+
 |Other Countries|Beds per 1000|
 |-------------|-------------|
 |**EU Average**|6.42|
