@@ -2,9 +2,9 @@
 # Healthcare Data Analysis
 
 ## Authors 
-* Joanne Peel
-* Daniel Cespedes
-* Joel Sotelo
+* Joanne Peel - [LinkedIn](https://www.linkedin.com/in/joanne-peel/) - [GitHub](https://github.com/JoannePeel)
+* Daniel Cespedes - [LinkedIn](https://www.linkedin.com/in/selinzorob/) - [GitHub](https://github.com/danielczz)
+* Joel Sotelo - [LinkedIn](https://www.linkedin.com/in/joelsotelods/) - [GitHub](https://github.com/joelsotelods)
 
 ## Project Outline
 The Mexican healthcare system is divided into two sectors: **private and public**. 
@@ -422,7 +422,7 @@ stk = df_stacked
 stk = stk.div(stk.sum(1), axis=0)
 ```
 
-### Urgencies by Year dataload
+### **Urgencies by Year dataload**
 
 
 ```python
@@ -966,146 +966,7 @@ er_year
 | 7    | 2016| 4039.0 | 4328.0                | 8367.0               | 29287.0              | 7584.0         | 36871.0      | 435.0  | 774.0 | 936145.0            | 2564.780822              | 37.717365 | 
 
 
-
-
-
-## Plots
-
-
-```python
-total_df_beds = total_df_beds.sort_values("TOTAL DE CAMAS", ascending=True)
-total_df_beds['TOTAL DE CAMAS'].plot(kind="barh", figsize=(12,8), legend = False, facecolor = 'navy')
-plt.title("Hospital beds by delegation").set_size(20)
-plt.xlabel("Number of beds").set_size(20)
-plt.ylabel("Delegation").set_size(20)
-plt.tick_params(axis="x", labelsize=14) 
-plt.tick_params(axis="y", labelsize=14)
-plt.grid()
-plt.tight_layout()
-plt.savefig("figures/number_of_bed_by_delegation.png")
-plt.show()
-plt.close()
-```
-![png](figures/number_of_bed_by_delegation.png)
-
-
-
-
-
-
-
-```python
-motate_tab.plot.bar(stacked=True, figsize=(16, 14)) 
-plt.title("Mexico City medical emergencies by type").set_size(20)
-plt.ylabel("Number of medical emergencies").set_size(20)
-plt.xlabel("Motive for atention").set_size(20)
-plt.grid()
-plt.tight_layout()
-plt.savefig("figures/motate_del.png")
-plt.show()
-plt.close()
-```
-![png](figures/motate_del.png)
-
-
-
-
-
-```python
-x_axis = np.arange(len(er_year))
-tick_locations = [value+0 for value in x_axis]
-plt.figure(figsize=(12,8))
-plt.bar(x_axis, er_year["count"])
-plt.grid()
-plt.xticks(tick_locations, er_year["YEAR"])
-plt.title("Mexico City medical emergencies by year").set_size(20)
-plt.ylabel("Number of medical emergencies").set_size(20)
-plt.xlabel("Year").set_size(20)
-plt.tight_layout()
-plt.savefig("figures/emergencies_year_v0.png")
-plt.show()
-plt.close()
-```
-![png](figures/emergencies_year_v0.png)
-
-
-
-```python
-ax = er_year.plot.bar(x='YEAR', y='count', rot=0, figsize=(12,8), legend = False)
-plt.xticks(tick_locations, er_year["YEAR"])
-plt.title("Mexico City medical emergencies by year").set_size(20)
-plt.ylabel("Number of medical emergencies").set_size(20)
-plt.xlabel("Year").set_size(20)
-plt.grid()
-plt.tight_layout()
-plt.savefig("figures/emergencies_year.png")
-plt.show()
-plt.close()
-```
-![png](figures/emergencies_year.png)
-
-
-
-
-```python
-
-ax = table.plot(figsize=(12,8))
-plt.title("Number of medical emergencies by delegation").set_size(20)
-plt.xlabel("Year")
-plt.ylabel("Number of medical emergencies")
-ax.yaxis.label.set_size(20)
-ax.xaxis.label.set_size(20)
-ax.tick_params(axis='x', labelsize=14)
-ax.tick_params(axis='y', labelsize=14)
-plt.grid()
-plt.tight_layout()
-plt.savefig("figures/emergencies_delegation_line.png")
-plt.show()
-plt.close()
-
-```
-![png](figures/emergencies_delegation_line.png)
-
-
-```python
-table.plot.bar(stacked=True, figsize=(20,14))
-plt.title("Number of medical emergencies by delegation").set_size(20)
-plt.xlabel("Year")
-plt.ylabel("Number of medical emergencies")
-ax.yaxis.label.set_size(20)
-ax.xaxis.label.set_size(20)
-ax.tick_params(axis='x', labelsize=20)
-ax.tick_params(axis='y', labelsize=20)
-plt.grid()
-plt.tight_layout()
-plt.savefig("figures/emergencies_delegation_stacked.png")
-plt.show()
-plt.close()
-```
-![png](figures/emergencies_delegation_stacked.png)
-
-
-
-
-
-
-```python
-#Plot beds per capita with comparative values
-beds_compared.plot(kind="barh", figsize=(12,8), legend = False)
-plt.title("Hospital beds per thousand by institution").set_size(20)
-plt.xlabel("Hospital beds per 1000").set_size(20)
-plt.ylabel("Institution").set_size(20)
-plt.tick_params(axis="x", labelsize=14) 
-plt.tick_params(axis="y", labelsize=14)
-plt.grid()
-plt.tight_layout()
-plt.savefig("figures/beds_capita_institution_compared_hor.png")
-plt.show()
-plt.close()
-```
-![png](figures/beds_capita_institution_compared_hor.png)
-
-
+---
 
 ### **Discussion of insights while exploring the data**
 
