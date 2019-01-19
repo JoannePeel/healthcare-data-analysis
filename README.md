@@ -971,35 +971,6 @@ er_year
 
 ## Plots
 
-```python
-### Insured population cdmx
-cdmx_insurance["Percent_insured"].plot(kind="barh", figsize=(12,8), legend = False)
-plt.title("CDMX percent of population insured by institution").set_size(20)
-plt.xlabel("Percent (%)").set_size(20)
-plt.ylabel("Institution").set_size(20)
-plt.tick_params(axis="x", labelsize=14) 
-plt.tick_params(axis="y", labelsize=14)
-plt.grid()
-plt.savefig("figures/insurance_percent.png")
-plt.show()
-plt.close()
-```
-![png](figures/insurance_percent.png)
-
-```python
-#Plot the number of hospitals by institution
-hospitals.plot(kind="barh", figsize=(12,8), legend = False)
-plt.title("Number of hospitals by institution").set_size(20)
-plt.xlabel("Number of hospitals").set_size(20)
-plt.ylabel("Institution").set_size(20)
-plt.tick_params(axis="x", labelsize=14) 
-plt.tick_params(axis="y", labelsize=14)
-plt.grid()
-plt.savefig("figures/hospitals_institution_hor.png")
-plt.show()
-plt.close()
-```
-![png](figures/hospitals_institution_hor.png)
 
 ```python
 total_df_beds = total_df_beds.sort_values("TOTAL DE CAMAS", ascending=True)
@@ -1017,56 +988,11 @@ plt.close()
 ```
 ![png](figures/number_of_bed_by_delegation.png)
 
-```python
-total_df_beds = total_df_beds.sort_values("BEDS PER 1000", ascending=True)
-total_df_beds['BEDS PER 1000'].plot(kind="barh", figsize=(12,8), legend = False, facecolor = 'orange')
-plt.title("Hospital beds per thousand by delegation").set_size(20)
-plt.xlabel("Number of beds per thousand").set_size(20)
-plt.ylabel("Delegation").set_size(20)
-plt.tick_params(axis="x", labelsize=14) 
-plt.tick_params(axis="y", labelsize=14)
-plt.grid()
-plt.tight_layout()
-plt.savefig("figures/number_of_bed_by_delegation_capita.png")
-plt.show()
-plt.close()
-```
-![png](figures/number_of_bed_by_delegation_capita.png)
-
-
-```python
-total_df_beds = total_df_beds.sort_values("TOTAL DE HOSPITALES", ascending=True)
-total_df_beds['TOTAL DE HOSPITALES'].plot(kind="barh", figsize=(12,8), legend = False, facecolor = 'indigo')
-plt.title("Number of hospitals by delegation").set_size(20)
-plt.xlabel("Number of hospitals").set_size(20)
-plt.ylabel("Delegation").set_size(20)
-plt.tick_params(axis="x", labelsize=14) 
-plt.tick_params(axis="y", labelsize=14)
-plt.grid()
-plt.tight_layout()
-plt.savefig("figures/number_of_hospitals_by_delegation.png")
-plt.show()
-plt.close()
-```
-![png](figures/number_of_hospitals_by_delegation.png)
 
 
 
-![png](figures/Total_population_by_delegation.png)
 
 
-```python
-stk.plot(kind="bar", stacked=True, figsize=(16, 8))
-plt.title("Percentage of institutions presence in Mexico City by delegation").set_size(20)
-plt.ylabel("Percentage of institutions presence").set_size(20)
-plt.xlabel("Delegation").set_size(20)
-plt.grid()
-plt.tight_layout()
-plt.savefig("figures/stacked_beds_by_institution_and_delegation.png")
-plt.show()
-plt.close()
-```
-![png](figures/stacked_beds_by_institution_and_delegation.png)
 
 ```python
 motate_tab.plot.bar(stacked=True, figsize=(16, 14)) 
@@ -1081,31 +1007,9 @@ plt.close()
 ```
 ![png](figures/motate_del.png)
 
-```python
-tps.plot(kind='bar', stacked=True, figsize=(16, 8)) 
-plt.title("Mexico City medical emergencies by type and delegation").set_size(20)
-plt.ylabel("Percentage of medical emergencies").set_size(20)
-plt.xlabel("Delegation").set_size(20)
-plt.grid()
-plt.tight_layout()
-plt.savefig("figures/motate_percent.png")
-plt.show()
-plt.close()
-```
-![png](figures/motate_percent.png)
 
-```python
-motate_gen.plot.barh(figsize=(14,7), legend=False)   
-plt.title("Mexico City medical emergencies by type").set_size(20)
-plt.xlabel("Number of medical emergencies").set_size(20)
-plt.ylabel("Motive for atention").set_size(20)
-plt.grid()
-plt.tight_layout()
-plt.savefig("figures/motate.png")
-plt.show()
-plt.close()
-```
-![png](figures/motate.png)
+
+
 
 ```python
 x_axis = np.arange(len(er_year))
@@ -1140,18 +1044,7 @@ plt.close()
 ```
 ![png](figures/emergencies_year.png)
 
-```python
-ax = er_year.plot.bar(x='YEAR', y='emergencies_day_hospital', rot=0, figsize=(12,8), legend = False)
-plt.xticks(tick_locations, er_year["YEAR"])
-plt.title("Mexico City medical emergencies average (hospital/day)").set_size(20)
-plt.ylabel("Number of medical emergencies").set_size(20)
-plt.xlabel("Year").set_size(20)
-plt.grid()
-plt.savefig("figures/emergencies_hospital_day.png")
-plt.show()
-plt.close()
-```
-![png](figures/emergencies_hospital_day.png)
+
 
 
 ```python
@@ -1192,38 +1085,9 @@ plt.close()
 ![png](figures/emergencies_delegation_stacked.png)
 
 
-```python
-merged_plot1 = pd.DataFrame(merged.groupby(['NOMBRE DEL MUNICIPIO'])['count'].sum())
-merged_plot1 = merged_plot1.sort_values("count", ascending=True)
-merged_plot1.plot.barh(figsize=(12,8), legend = False)
-plt.xlabel("Number of medical emergencies")
-plt.title("Number of medical emergencies by delegation").set_size(20)
-plt.grid()
-plt.tight_layout()
-plt.savefig("figures/emergencies_delegation.png")
-plt.show()
-plt.close()
-```
-![png](figures/emergencies_delegation.png)
 
-```python
-#Plot the number of beds per capita by institution
-total_beds = beds["camas"].sum()
-average_beds_cdmx = (total_beds/Total_pop)*1000
-beds_plot.plot(kind="barh", figsize=(12,8), legend = False)
-plt.title("Hospital beds per thousand by institution").set_size(20)
-plt.xlabel("Hospital beds per 1000").set_size(20)
-plt.ylabel("Institution").set_size(20)
-plt.tick_params(axis="x", labelsize=14) 
-plt.tick_params(axis="y", labelsize=14)
-plt.axvline(average_beds_cdmx, color='grey', linestyle= '--', label="Mexico City average")
-plt.grid()
-plt.tight_layout()
-plt.savefig("figures/beds_capita_institution_hor.png")
-plt.show()
-plt.close()
-```
-![png](figures/beds_capita_institution_hor.png)
+
+
 
 ```python
 #Plot beds per capita with comparative values
@@ -1260,7 +1124,7 @@ plt.close()
 
 ### **Results**
 
-#### Population of Mexico City by delegation.
+#### _Population of Mexico City by delegation._
 
 The total population of Mexico City in 2015 was 8,851,080. The delegation with the largest number of people was Iztapalapa (Figure 1).
 
@@ -1279,38 +1143,139 @@ plt.show()
 plt.close()
 ```
 
-![](https://github.com/joelsotelods/healthcare-data-analysis/blob/develop/figures/Total_population_by_delegation.png)
+![Total_population_by_delegation](figures/Total_population_by_delegation.png)
 _Figure 1. Population of Mexico City by delegation._
+
+#### _Percentage of population insured (by instittion) and uninsured._
 
 More than 80% of the population in Mexico City have some form of health insurance (Figure 2). Only 18.7% of the population are uninsured.
 
-![](https://github.com/joelsotelods/healthcare-data-analysis/blob/develop/figures/insurance_percent.png)
+```python
+### Insured population cdmx
+cdmx_insurance["Percent_insured"].plot(kind="barh", figsize=(12,8), legend = False)
+plt.title("CDMX percent of population insured by institution").set_size(20)
+plt.xlabel("Percent (%)").set_size(20)
+plt.ylabel("Institution").set_size(20)
+plt.tick_params(axis="x", labelsize=14) 
+plt.tick_params(axis="y", labelsize=14)
+plt.grid()
+plt.savefig("figures/insurance_percent.png")
+plt.show()
+plt.close()
+```
+
+![insurance_percent](figures/insurance_percent.png)
 _Figure 2. Percentage of population insured (by instittion) and uninsured. *IMSS: Instituto Mexicano de Seguro Social; ISSSTE: Instituto de Seguro Social de Trabajadores del Estado; SSA: Secretaria de Salud; SMP: Servicios Médicos Privados; PEMEX: Petróleos Mexicanos; Others: SEDENA, SEMAR, SME, etc._
+
+#### _Number of hospitals in Mexico City by delegation._
 
 Iztapalapa is the delegation with most hospitals in Mexico City, while Magdalena Contreras and Cuajimalpa are the delegations with less hospitals (Fig. 3).
 
-![](https://github.com/joelsotelods/healthcare-data-analysis/blob/develop/figures/number_of_hospitals_by_delegation.png)
+```python
+total_df_beds = total_df_beds.sort_values("TOTAL DE HOSPITALES", ascending=True)
+total_df_beds['TOTAL DE HOSPITALES'].plot(kind="barh", figsize=(12,8), legend = False, facecolor = 'indigo')
+plt.title("Number of hospitals by delegation").set_size(20)
+plt.xlabel("Number of hospitals").set_size(20)
+plt.ylabel("Delegation").set_size(20)
+plt.tick_params(axis="x", labelsize=14) 
+plt.tick_params(axis="y", labelsize=14)
+plt.grid()
+plt.tight_layout()
+plt.savefig("figures/number_of_hospitals_by_delegation.png")
+plt.show()
+plt.close()
+```
+
+![number_of_hospitals_by_delegation](figures/number_of_hospitals_by_delegation.png)
 _Figure 3. Number of hospitals in Mexico City by delegation._
+
+#### _Number of hospitals in Mexico City by institution._
 
 The majority of hospitals in Mexico City are private (SMP). Within the public institutions, SSA is the one that has the most hospitals in the City, while PEMEX and ISSSTE have the fewest (Fig. 4).
 
-![](https://github.com/joelsotelods/healthcare-data-analysis/blob/develop/figures/hospitals_institution_hor.png)
+```python
+#Plot the number of hospitals by institution
+hospitals.plot(kind="barh", figsize=(12,8), legend = False)
+plt.title("Number of hospitals by institution").set_size(20)
+plt.xlabel("Number of hospitals").set_size(20)
+plt.ylabel("Institution").set_size(20)
+plt.tick_params(axis="x", labelsize=14) 
+plt.tick_params(axis="y", labelsize=14)
+plt.grid()
+plt.savefig("figures/hospitals_institution_hor.png")
+plt.show()
+plt.close()
+```
+
+![hospitals_institution_hor](figures/hospitals_institution_hor.png)
 _Figure 4. Number of hospitals in Mexico City by institution._
+
+#### _Percentage of institutions presence in Mexico City by delegation._
 
 However, institutions are not evenly distributed throughout delegations (Fig. 5). For example, Cuajimalpa only has private hospitals (after an explosion in the only public hospital in early 2015), while Magdalena Contreras, Venustiano Carranza, Tlahuac and Xochimilco only have public hospitals belonging to SSA.
 
-![](https://github.com/joelsotelods/healthcare-data-analysis/blob/develop/figures/stacked_beds_by_institution_and_delegation.png)
+```python
+stk.plot(kind="bar", stacked=True, figsize=(16, 8))
+plt.title("Percentage of institutions presence in Mexico City by delegation").set_size(20)
+plt.ylabel("Percentage of institutions presence").set_size(20)
+plt.xlabel("Delegation").set_size(20)
+plt.grid()
+plt.tight_layout()
+plt.savefig("figures/stacked_beds_by_institution_and_delegation.png")
+plt.show()
+plt.close()
+```
+
+![stacked_beds_by_institution_and_delegation](figures/stacked_beds_by_institution_and_delegation.png)
 _Figure 5. Percentage of institutions presence in Mexico City by delegation._
+
+#### _Hospital beds per thousand by delegation in Mexico City._
 
 Miguel Hidalgo and Cauthemoc have the highest amount of beds per capita (Fig. 6).
 
-![](https://github.com/joelsotelods/healthcare-data-analysis/blob/develop/figures/number_of_bed_by_delegation_capita.png)
+```python
+total_df_beds = total_df_beds.sort_values("BEDS PER 1000", ascending=True)
+total_df_beds['BEDS PER 1000'].plot(kind="barh", figsize=(12,8), legend = False, facecolor = 'orange')
+plt.title("Hospital beds per thousand by delegation").set_size(20)
+plt.xlabel("Number of beds per thousand").set_size(20)
+plt.ylabel("Delegation").set_size(20)
+plt.tick_params(axis="x", labelsize=14) 
+plt.tick_params(axis="y", labelsize=14)
+plt.grid()
+plt.tight_layout()
+plt.savefig("figures/number_of_bed_by_delegation_capita.png")
+plt.show()
+plt.close()
+```
+
+![number_of_bed_by_delegation_capita](figures/number_of_bed_by_delegation_capita.png)
 _Figure 6. Hospital beds per thousand by delegation in Mexico City._
+
+#### _Hospital beds per thousand by institution in Mexico City (dotted line: Mexico City average)._
 
 Private institutions have the highest per capita index per thousand with more than 9 beds per insured person. ISSSTE has the lowest number of beds per capita in Mexico City. The average for the city is 2.5 hospital beds per 1000 (Fig. 7).
 
-![](https://github.com/joelsotelods/healthcare-data-analysis/blob/develop/figures/beds_capita_institution_hor.png)
+```python
+#Plot the number of beds per capita by institution
+total_beds = beds["camas"].sum()
+average_beds_cdmx = (total_beds/Total_pop)*1000
+beds_plot.plot(kind="barh", figsize=(12,8), legend = False)
+plt.title("Hospital beds per thousand by institution").set_size(20)
+plt.xlabel("Hospital beds per 1000").set_size(20)
+plt.ylabel("Institution").set_size(20)
+plt.tick_params(axis="x", labelsize=14) 
+plt.tick_params(axis="y", labelsize=14)
+plt.axvline(average_beds_cdmx, color='grey', linestyle= '--', label="Mexico City average")
+plt.grid()
+plt.tight_layout()
+plt.savefig("figures/beds_capita_institution_hor.png")
+plt.show()
+plt.close()
+```
+
+![beds_capita_institution_hor](figures/beds_capita_institution_hor.png)
 _Figure 7. Hospital beds per thousand by institution in Mexico City (dotted line: Mexico City average)._
+
 
 Table 1 shows beds per thousand for other countries. ISSSTE and IMSS are comparable to the average of El Salvador, while SSA is comparable to the average in the USA.
 
@@ -1322,9 +1287,23 @@ Table 1 shows beds per thousand for other countries. ISSSTE and IMSS are compara
 |**USA Average**|3.30|
 |**El Salvador Avr.**|1.65|
 
+#### _Emergencies by year attended in SSA hospitals in Mexico City._
+
 Figure 8 shows the number of medical emergencies by year in Mexico City (only SSA). The demand of emergency attention has been increasing (table 2) and in 2014 SSA hospitals attended a total of 1,011,306 emergencies.
 
-![](https://github.com/joelsotelods/healthcare-data-analysis/blob/develop/figures/emergencies_hospital_day.png)
+```python
+ax = er_year.plot.bar(x='YEAR', y='emergencies_day_hospital', rot=0, figsize=(12,8), legend = False)
+plt.xticks(tick_locations, er_year["YEAR"])
+plt.title("Mexico City medical emergencies average (hospital/day)").set_size(20)
+plt.ylabel("Number of medical emergencies").set_size(20)
+plt.xlabel("Year").set_size(20)
+plt.grid()
+plt.savefig("figures/emergencies_hospital_day.png")
+plt.show()
+plt.close()
+```
+
+![emergencies_hospital_day](figures/emergencies_hospital_day.png)
 _Figure 8. Emergencies by year attended in SSA hospitals in Mexico City._
 
 ### Table 2. Number of emergencies attended by SSA hospitals and increment rate.
@@ -1340,24 +1319,81 @@ _Figure 8. Emergencies by year attended in SSA hospitals in Mexico City._
 |**2015** |	    964884| 	-0.05   |
 |**2016** |	    936145| 	-0.03   |
 
+#### _Number of emergencies attended by SSA hospitals by delegation._
+
 Figure 9 shows the number of emergencies by delegation. Gustavo A. Madero was the delgation with the highest number of emergencies, followed by Cuathemoc. This may be related to the number of hospitals and their size in these delgations.
 
-![](https://github.com/joelsotelods/healthcare-data-analysis/blob/develop/figures/emergencies_delegation.png)
+```python
+merged_plot1 = pd.DataFrame(merged.groupby(['NOMBRE DEL MUNICIPIO'])['count'].sum())
+merged_plot1 = merged_plot1.sort_values("count", ascending=True)
+merged_plot1.plot.barh(figsize=(12,8), legend = False)
+plt.xlabel("Number of medical emergencies")
+plt.title("Number of medical emergencies by delegation").set_size(20)
+plt.grid()
+plt.tight_layout()
+plt.savefig("figures/emergencies_delegation.png")
+plt.show()
+plt.close()
+```
+
+![emergencies_delegation](figures/emergencies_delegation.png)
 _Figure 9. Number of emergencies attended by SSA hospitals by delegation._
+
+#### _Motives for attention in emergency rooms of SSA hospitals in Mexico City._
 
 The most common emergency was "medical" (Fig. 10), and only 4.9% (336095 emergencies) were non-qualified emergencies.
 
-![](https://github.com/joelsotelods/healthcare-data-analysis/blob/develop/figures/motate.png)
+```python
+motate_gen.plot.barh(figsize=(14,7), legend=False)   
+plt.title("Mexico City medical emergencies by type").set_size(20)
+plt.xlabel("Number of medical emergencies").set_size(20)
+plt.ylabel("Motive for atention").set_size(20)
+plt.grid()
+plt.tight_layout()
+plt.savefig("figures/motate.png")
+plt.show()
+plt.close()
+```
+
+![motate](figures/motate.png)
 _Figure 10. Motives for attention in emergency rooms of SSA hospitals in Mexico City._
+
+#### _Percentage of motives of atention in emergency rooms of SSA hospitals in Mexico City by delegation._
 
 Figure 11 shows the percentage of motives of attention by delegation. However, this data reflects the nature of the hospitals found in each area. For example, Cuajimalpa has a high percentage of gynecological emergencies, which corresponds to the presence of a maternal ward in this area. On the other hand, in Benito Juarez, a lot of violence and accident related emergencies can be observed, which mau be related to the Hospital Xoco, which is specialized in trauma.
 
-![](https://github.com/joelsotelods/healthcare-data-analysis/blob/develop/figures/motate_percent.png)
+```python
+tps.plot(kind='bar', stacked=True, figsize=(16, 8)) 
+plt.title("Mexico City medical emergencies by type and delegation").set_size(20)
+plt.ylabel("Percentage of medical emergencies").set_size(20)
+plt.xlabel("Delegation").set_size(20)
+plt.grid()
+plt.tight_layout()
+plt.savefig("figures/motate_percent.png")
+plt.show()
+plt.close()
+```
+
+![motate_percent](figures/motate_percent.png)
 _Figure 11. Percentage of motives of atention in emergency rooms of SSA hospitals in Mexico City by delegation._
+
+#### _Average emergencies attended by hospital per day._
 
 To show the demand of emergency services, we calculated an average of emergencies per day attended by hospital for each year studied (Fig. 12). Hospitals attended an average of 27 to 41 emergencies per day.
 
-![](https://github.com/joelsotelods/healthcare-data-analysis/blob/develop/figures/emergencies_hospital_day.png)
+```python
+ax = er_year.plot.bar(x='YEAR', y='emergencies_day_hospital', rot=0, figsize=(12,8), legend = False)
+plt.xticks(tick_locations, er_year["YEAR"])
+plt.title("Mexico City medical emergencies average (hospital/day)").set_size(20)
+plt.ylabel("Number of medical emergencies").set_size(20)
+plt.xlabel("Year").set_size(20)
+plt.grid()
+plt.savefig("figures/emergencies_hospital_day.png")
+plt.show()
+plt.close()
+```
+
+![emergencies_hospital_day](figures/emergencies_hospital_day.png)
 _Figure 12. Average emergencies attended by hospital per day._
 
 ---
