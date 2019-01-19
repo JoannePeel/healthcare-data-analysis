@@ -1165,7 +1165,7 @@ plt.show()
 plt.close()
 ```
 
-![emergencies_hospital_day](figures/emergencies_hospital_day.png)
+![emergencies_hospital_day](figures/emergencies_year.png)
 _Figure 8. Emergencies by year attended in SSA hospitals in Mexico City._
 
 ### Table 2. Number of emergencies attended by SSA hospitals and increment rate.
