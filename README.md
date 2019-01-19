@@ -254,14 +254,14 @@ df_institutions['beds per 1000'] = (df_institutions['camas']/df_institutions['po
 df_institutions
 ```
 
-| CLAVE DE LA INSTITUCION | number_of_hospitals | camas   | population_insured | beds per 1000 | 
-|-------------------------|-----|---------------------|---------|--------------------|---------------| 
-| IMSS | 29  | 5989                | 3233124 | 1.852388           |               | 
-| ISSSTE                  | 8   | 1848                | 1096209 | 1.685810           |               | 
-| PEMEX                   | 2   | 240                 | 101922  | 2.354742           |               | 
-| SMP                     | 451 | 5420                | 605038  | 8.958115           |               | 
-| SSA                     | 55  | 7390                | 2009093 | 3.678277           |               | 
-| OTHERS                  | 11  | 1262                | 152621  | 8.268849           |               | 
+| CLAVE DE LA INSTITUCION | number_of_hospitals | camas   | population_insured | beds per 1000 |
+|-------------------------|-----|---------------------|---------|--------------------|
+| IMSS                    | 29  | 5989                | 3233124 | 1.852388           |
+| ISSSTE                  | 8   | 1848                | 1096209 | 1.685810           |
+| PEMEX                   | 2   | 240                 | 101922  | 2.354742           |
+| SMP                     | 451 | 5420                | 605038  | 8.958115           |
+| SSA                     | 55  | 7390                | 2009093 | 3.678277           |
+| OTHERS                  | 11  | 1262                | 152621  | 8.268849           |
 
 
 ```python
@@ -422,7 +422,7 @@ stk = df_stacked
 stk = stk.div(stk.sum(1), axis=0)
 ```
 
-### Urgencies by Year data load
+### Urgencies by Year dataload
 
 
 ```python
@@ -1051,20 +1051,7 @@ plt.close()
 ![png](figures/number_of_hospitals_by_delegation.png)
 
 
-```python
-total_df_beds = total_df_beds.sort_values("TOTAL DE HABITANTES", ascending=True)
-total_df_beds['TOTAL DE HABITANTES'].plot(kind="barh", figsize=(12,8), legend = False, facecolor = 'green')
-plt.title("Total population by delegation").set_size(20)
-plt.xlabel("Population").set_size(20)
-plt.ylabel("Delegation").set_size(20)
-plt.tick_params(axis="x", labelsize=14) 
-plt.tick_params(axis="y", labelsize=14)
-plt.grid()
-plt.tight_layout()
-plt.savefig("figures/Total_population_by_delegation.png")
-plt.show()
-plt.close()
-```
+
 ![png](figures/Total_population_by_delegation.png)
 
 
@@ -1273,7 +1260,24 @@ plt.close()
 
 ### **Results**
 
+#### Population of Mexico City by delegation.
+
 The total population of Mexico City in 2015 was 8,851,080. The delegation with the largest number of people was Iztapalapa (Figure 1).
+
+```python
+total_df_beds = total_df_beds.sort_values("TOTAL DE HABITANTES", ascending=True)
+total_df_beds['TOTAL DE HABITANTES'].plot(kind="barh", figsize=(12,8), legend = False, facecolor = 'green')
+plt.title("Total population by delegation").set_size(20)
+plt.xlabel("Population").set_size(20)
+plt.ylabel("Delegation").set_size(20)
+plt.tick_params(axis="x", labelsize=14) 
+plt.tick_params(axis="y", labelsize=14)
+plt.grid()
+plt.tight_layout()
+plt.savefig("figures/Total_population_by_delegation.png")
+plt.show()
+plt.close()
+```
 
 ![](https://github.com/joelsotelods/healthcare-data-analysis/blob/develop/figures/Total_population_by_delegation.png)
 _Figure 1. Population of Mexico City by delegation._
