@@ -1,5 +1,5 @@
 
-# Health Care Data Analysis
+# Healthcare Data Analysis
 
 ## Authors 
 * Joanne Peel
@@ -91,9 +91,9 @@ Our hypothesis are that the public healthcare institutions face a high demand of
     
 1. To get the information from the INEGI and government websites.
 
-2. Understand, filter and cleanup the data, using Pandas dataframes.
+2. Understand, filter and cleanup the data, using **Pandas** dataframes.
 
-3. Visualize the results using matplotlib.
+3. Visualize the results using **matplotlib**.
 
 ### **Data Cleanup & Exploration**
 
@@ -101,18 +101,18 @@ print code here for clean up...and comment the code
 
 ### **Discussion of insights while exploring the data**
 
-- We were hoping to analyze all the emergencies for all institutions but discovered that the data set “urgencias” only contained data for SSA, but not for the other instutions analyzed.
+- We were hoping to analyze all the emergencies for all institutions but we discovered that the data set “urgencias” only contained data for SSA, but not for the other instutions analyzed.
 - The data set "urgencias" had a different format for every year reported. Several fixes had to be implemented to be able to unify the information and to run an automated analysis.
 
 ### **Data Analysis**
 - We used five different data sets from different data sources to create this analysis. Data about population size and population insured came from INEGI and corresponds to the year 2015.
 
 - We used two data sets about hospitals: 
-    - The first one is a list of all the hospitals in Mexico and includes their location and size (hospitlas.csv) from 2015. 
+    - The first one is a list of all the hospitals in Mexico and includes their location and size (hospitals.csv) from 2015. 
     - The second one is a data set that consists of 7 separate folders, of which we only used the files named “urgencias". This data set contains information on medical emergencies attended in public hospitals (SSA) all over Mexico in the period from 2009 to 2016.
     - The last data set contains comparative data on hospital beds per capita in other countries and was obtained from a website.
 
-- We filtered the information contained in "hospitals.csv" and the data set "urgencias" to analyze exclusiveley the information provided for Mexico City (cdmx).
+- We filtered the information contained in "hospitals.csv" and the data set "urgencias" to analyze exclusiveley the information provided for Mexico City (CDMX).
 
 ### **Results**
 
@@ -122,14 +122,17 @@ The total population of Mexico City in 2015 was 8,851,080. The delegation with t
 _Figure 1. Population of Mexico City by delegation._
 
 More than 80% of the population in Mexico City have some form of health insurance (Figure 2). Only 18.7% of the population are uninsured.
+
 ![](https://github.com/joelsotelods/healthcare-data-analysis/blob/develop/figures/insurance_percent.png)
 _Figure 2. Percentage of population insured (by instittion) and uninsured. *IMSS: Instituto Mexicano de Seguro Social; ISSSTE: Instituto de Seguro Social de Trabajadores del Estado; SSA: Secretaria de Salud; SMP: Servicios Médicos Privados; PEMEX: Petróleos Mexicanos; Others: SEDENA, SEMAR, SME, etc._
 
 Iztapalapa is the delegation with most hospitals in Mexico City, while Magdalena Contreras and Cuajimalpa are the delegations with less hospitals (Fig. 3).
+
 ![](https://github.com/joelsotelods/healthcare-data-analysis/blob/develop/figures/number_of_hospitals_by_delegation.png)
 _Figure 3. Number of hospitals in Mexico City by delegation._
 
 The majority of hospitals in Mexico City are private (SMP). Within the public institutions, SSA is the one that has the most hospitals in the City, while PEMEX and ISSSTE have the fewest (Fig. 4).
+
 ![](https://github.com/joelsotelods/healthcare-data-analysis/blob/develop/figures/hospitals_institution_hor.png)
 _Figure 4. Number of hospitals in Mexico City by institution._
 
@@ -139,16 +142,18 @@ However, institutions are not evenly distributed throughout delegations (Fig. 5)
 _Figure 5. Percentage of institutions presence in Mexico City by delegation._
 
 Miguel Hidalgo and Cauthemoc have the highest amount of beds per capita (Fig. 6).
+
 ![](https://github.com/joelsotelods/healthcare-data-analysis/blob/develop/figures/number_of_bed_by_delegation_capita.png)
 _Figure 6. Hospital beds per thousand by delegation in Mexico City._
 
 Private institutions have the highest per capita index per thousand with more than 9 beds per insured person. ISSSTE has the lowest number of beds per capita in Mexico City. The average for the city is 2.5 hospital beds per 1000 (Fig. 7).
+
 ![](https://github.com/joelsotelods/healthcare-data-analysis/blob/develop/figures/beds_capita_institution_hor.png)
 _Figure 7. Hospital beds per thousand by institution in Mexico City (dotted line: Mexico City average)._
 
 Table 1 shows beds per thousand for other countries. ISSSTE and IMSS are comparable to the average of El Salvador, while SSA is comparable to the average in the USA.
 
-###Table 1. Comparative values of beds per thousand.
+### Table 1. Comparative values of beds per thousand.
 
 |Other Countries|Beds per 1000|
 |-------------|-------------|
@@ -161,7 +166,7 @@ Figure 8 shows the number of medical emergencies by year in Mexico City (only SS
 ![](https://github.com/joelsotelods/healthcare-data-analysis/blob/develop/figures/emergencies_hospital_day.png)
 _Figure 8. Emergencies by year attended in SSA hospitals in Mexico City._
 
-###Table 2. Number of emergencies attended by SSA hospitals and increment rate.
+### Table 2. Number of emergencies attended by SSA hospitals and increment rate.
 
 |YEAR |	Number of emergencies| Increment rate|
 |-----|----------------------|---------------|	
@@ -194,7 +199,9 @@ To show the demand of emergency services, we calculated an average of emergencie
 ![](https://github.com/joelsotelods/healthcare-data-analysis/blob/develop/figures/emergencies_hospital_day.png)
 _Figure 12. Average emergencies attended by hospital per day._
 
-### Conclusions
+---
+
+## Conclusions
 Most of Mexico City's hospitals are private.
 
 The public hospitals with the lowest beds per thousand index and the highest patient loads are ISSSTE and IMSS. 
