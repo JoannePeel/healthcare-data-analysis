@@ -100,22 +100,9 @@ Our hypothesis are that the public healthcare institutions face a high demand of
 
 To see the complete code solution: [Healthcare Data Analysis](main.ipynb)
 
-### Importing libraries
-
-
-```python
-# get_ipython().run_line_magic('matplotlib', 'inline')
-import matplotlib.pyplot as plt
-import pandas as pd
-import numpy as np
-```
 
 ### Dataload
 
-```python
-hospital_data_to_load = "data_input/hospitals.csv"
-hospitals = pd.read_csv(hospital_data_to_load, encoding='latin-1')
-```
 
 ```python
 hospitals_cdmx1 = hospitals.loc[(hospitals["NOMBRE DE LA ENTIDAD"] == "CIUDAD DE MEXICO")]
@@ -139,30 +126,10 @@ cdmx_hospitals = hospitals_cdmx[['CLUES', 'NOMBRE DE LA ENTIDAD', 'NOMBRE DEL MU
 | 6509 | DFIMS000061 | CIUDAD DE MEXICO     | AZCAPOTZALCO         | AZCAPOTZALCO           | AZCAPOTZALCO              | IMSS                    | HOSPITAL GENERAL               | 69                       | 0                           | 69                    | 523                  | 0                    | 523            | HG CM LA RAZA                                     | CLZD. VALLEJO Y JACARANDAS COL. LA RAZA C.P. ...  | 2990.0        | EN OPERACION         | -99.182     | 19.486     | SEGUNDO NIVEL  | 
 
 
-```python
-cdmx_hospitals = cdmx_hospitals.loc[(cdmx_hospitals["ESTATUS DE OPERACION"] == "EN OPERACION")]
-cdmx_hospitals = cdmx_hospitals.loc[(cdmx_hospitals["TOTAL DE CAMAS"] != 0)]
-cdmx_hospitals.to_csv('data_output/cdmx_hospitals.csv')
-```
 
 ## Insured population cdmx
 
 
-```python
-insurance_data_to_load = "data_input/insured_population.csv"
-population_insured = pd.read_csv(insurance_data_to_load)
-population_insured.set_index('CLAVE DE LA INSTITUCION', inplace=True)
-pop_data_to_load = "data_input/population_cdmx.csv"
-population = pd.read_csv(pop_data_to_load)
-```
-
-
-```python
-Total_pop = population['Total'].sum()
-Total_insured = population_insured["population_insured"].sum()
-Uninsured = Total_pop - Total_insured
-no_insurance = pd.DataFrame({"population_insured": [Uninsured]})
-```
 
 
 ```python
@@ -191,61 +158,7 @@ cdmx_insurance
 
 ## Beds per capita (institutions)
 
-```python
-#Import data
-hospital_data_to_load = "data_output/cdmx_hospitals.csv" #data generated from "Data cleaning"
-cdmx_hospitals = pd.read_csv(hospital_data_to_load, encoding='latin-1')
-insurance_data_to_load = "data_input/insured_population.csv" #Data from INEGI "derechohabiencia cdmx 2015"
-population_insured = pd.read_csv(insurance_data_to_load)
-population_insured.set_index('CLAVE DE LA INSTITUCION', inplace=True)
-bed_data_to_load = "data_input/comparison_beds.csv" #Data from www.nationmaster.com/country-info/stats/Health/Hospital-beds/Per-1%2C000-people
-comparison_beds = pd.read_csv(bed_data_to_load)
-comparison_beds.set_index('CLAVE DE LA INSTITUCION', inplace=True)
-```
 
-
-```python
-#Dataframe number of beds/institution
-cdmx_hospitals = cdmx_hospitals.rename(columns={"TOTAL DE CAMAS":"camas"})
-hospitals_inst = pd.DataFrame(cdmx_hospitals.groupby(["CLAVE DE LA INSTITUCION"]).camas.sum()) 
-```
-
-
-```python
-#Combine rare institutions in category "other"
-hospitals_institutions = hospitals_inst.loc[["IMSS", "ISSSTE", "PEMEX", "SMP", "SSA"]]
-others = hospitals_inst.loc[["CRO", "SEDENA", "SEMAR", "SME"]]
-OTHERS = others["camas"].sum()
-other_inst = pd.DataFrame({"camas": [OTHERS]})
-other_inst = other_inst.rename(index={0:'OTHERS'})
-hospitals_all_beds = hospitals_institutions.append(other_inst)
-```
-
-
-```python
-#Dataframe number of hospitals/institution
-cdmx_hospitals = cdmx_hospitals.rename(columns={"NOMBRE DE LA UNIDAD":"nombre_hospital"})
-hospitals_number_all = pd.DataFrame(cdmx_hospitals.groupby(["CLAVE DE LA INSTITUCION"]).nombre_hospital.count())
-```
-
-
-```python
-#Combine rare hospitals in category "other"
-hospitals_number = hospitals_number_all.loc[["IMSS", "ISSSTE", "PEMEX", "SMP", "SSA"]]
-number_others1 = hospitals_number_all.loc[["CRO", "SEDENA", "SEMAR", "SME"]]
-numb_others = number_others1["nombre_hospital"].sum()
-numb_others = pd.DataFrame({"nombre_hospital": [numb_others]})
-numb_others = numb_others.rename(index={0:'OTHERS'})
-hospitals_all_number = hospitals_number.append(numb_others)
-```
-
-
-```python
-#Combine dataframes 
-df_institutions = hospitals_all_number.join(hospitals_all_beds, how="outer")
-df_institutions = df_institutions.rename(columns={"nombre_hospital" : "number_of_hospitals"})
-df_institutions = df_institutions.join(population_insured, how="outer")
-```
 
 
 ```python
@@ -263,31 +176,6 @@ df_institutions
 | SSA                     | 55  | 7390                | 2009093 | 3.678277           |
 | OTHERS                  | 11  | 1262                | 152621  | 8.268849           |
 
-
-```python
-#Sort values for plots/summary table
-beds= df_institutions.sort_values("beds per 1000", ascending=False)
-beds.to_csv('data_output/beds_per_capita.csv') #save summary table to csv
-sum_beds = beds[["camas"]]
-sum_beds = sum_beds.sort_values("camas", ascending=False)
-```
-
-
-```python
-avrg_beds = df_institutions["beds per 1000"].mean()
-```
-
-
-```python
-beds_plot = beds[['beds per 1000']]
-beds_plot = beds_plot.sort_values("beds per 1000", ascending=True)
-```
-
-
-```python
-hospitals = df_institutions[["number_of_hospitals"]]
-hospitals = hospitals.sort_values("number_of_hospitals", ascending=True)
-```
 
 
 ```python
@@ -312,49 +200,6 @@ beds_compared
 
 ### Beds per capita (delegaciones)
 
-```python
-hospital_data_to_load = "data_output/cdmx_hospitals.csv"
-
-cdmx_hospitals_df = pd.read_csv(hospital_data_to_load)
-```
-
-
-```python
-#How many beds are in CDMX
-total_beds_cdmx = cdmx_hospitals_df["TOTAL DE CAMAS"].sum()
-
-#Group info by delegation 
-cdmx_by_delegation = cdmx_hospitals_df.groupby(['NOMBRE DEL MUNICIPIO'])
-
-#How many beds are in CDMX by delegation
-total_beds_by_delegation = cdmx_by_delegation["TOTAL DE CAMAS"].sum()
-
-# Place total_beds_by_delegation dataseries into in a Pandas DataFrame
-total_df_beds = pd.DataFrame(data=total_beds_by_delegation)
-
-#How many hospitals are in CDMX by delegation
-total_hospitals_by_delegation = cdmx_by_delegation["NOMBRE DE LA UNIDAD"].nunique()
-
-# Place total_hospitals_by_delegation dataseries into a Pandas DataFrame
-total_df_hospitals = pd.DataFrame(data = total_hospitals_by_delegation)
-```
-
-```python
-total_df_beds['TOTAL DE HOSPITALES'] = total_df_hospitals
-```
-
-
-```python
-population_file = "data_input/population_cdmx.csv"
-
-cdmx_population_df = pd.read_csv(population_file)
-cdmx_population_df = cdmx_population_df.rename(columns={'Delegación': 'NOMBRE DEL MUNICIPIO', 'Total': 'TOTAL DE HABITANTES'})
-
-cdmx_population_df.set_index('NOMBRE DEL MUNICIPIO', inplace=True) 
-cdmx_population_df
-
-total_df_beds = total_df_beds.join(cdmx_population_df, how="outer")
-```
 
 
 ```python
@@ -416,121 +261,7 @@ df_stacked
 | ÁLVARO OBREGÓN          | NaN | 2.0  | 2.0    | NaN   | 1.0    | NaN   | NaN | 16.0  | 1.0  | 
 
 
-```python
-stk = df_stacked
-# tps = tps[[“ACCIDENTES, ENVENENAMIENTO Y VIOLENCIAS”, “GINECO-OBSTETRICA”, “MEDICA”, “NO ESPECIFICADO”, “PEDIATRICA”, “QUIRURGICA”, “URGENCIA NO CALIFICADA” ]]
-stk = stk.div(stk.sum(1), axis=0)
-```
-
 ### **Urgencies by Year dataload**
-
-
-```python
-years = ['2009','2010','2011','2012','2013','2014','2015','2016']
-```
-
-
-```python
-urgencies = pd.DataFrame(columns=['CLUES','TIPOURGENCIA','MOTATE','YEAR','tmp_trail'])
-
-for year in years:
-    path = f'Datos/Urgencias_{year}/'
-    file = f'URGENCIAS_{year}.csv'
-    
-    try:
-        # code to process the 2009 file (it doesn't cointain headers)
-        # ENTRESIDENCIA, MP y TIPOURGENCIA se empieza a reportar a partir del año 2010
-        # MUNRESIDENCIA se empieza a reportar a partir del año 2012
-        if year in ['2009']:
-            print(f'[LOG]: Processing... {path+file}')
-            urgencies_tmp = pd.read_csv(path+file, sep=";", header=None, 
-                    names=['ID','CLUES','FOLIO','FECHAALTA',
-                    'EDAD','CVEEDAD','SEXO',#'ENTRESIDENCIA','MUNRESIDENCIA',
-                    'DERHAB',#'TIPOURGENCIA',
-                    'MOTATE','TIPOCAMA','ENVIADOA',#'MP',
-                    'AFECPRIN','IRA','PLANEDA','SOBRESEDA',
-                    'FECHAINGRESO','HORASESTANCIA','MES_ESTADISTICO',
-                    'HORAINIATE','MININIATE','HORATERATE','MINTERATE'],
-                    dtype={'ID': object,'CLUES': object,'FOLIO': object,'FECHAALTA': object,
-                    'EDAD': object,'CVEEDAD': object,'SEXO': object,#'ENTRESIDENCIA': object, 'MUNRESIDENCIA': object,
-                    'DERHAB': object,#'TIPOURGENCIA': np.float64,
-                    'MOTATE': np.float64,'TIPOCAMA': object,'ENVIADOA': object,#'MP': object,
-                    'AFECPRIN': object,'IRA': object,'PLANEDA': object,'SOBRESEDA': object,
-                    'FECHAINGRESO': object,'HORASESTANCIA': object,'MES_ESTADISTICO': object,
-                    'HORAINIATE': object,'MININIATE': object,'HORATERATE': object,'MINTERATE': object})
-            print(f'[LOG]: {file} processed.')
-        # code to process the 2010 & 2011 files (it doesn't cointain headers)
-        # MUNRESIDENCIA se empieza a reportar a partir del año 2012
-        elif year in ['2010','2011']:
-            print(f'[LOG]: Processing... {path+file}')
-            urgencies_tmp = pd.read_csv(path+file, sep=";", header=None, 
-                    names=['ID','CLUES','FOLIO','FECHAALTA',
-                    'EDAD','CVEEDAD','SEXO','ENTRESIDENCIA',
-                    #'MUNRESIDENCIA',
-                    'DERHAB','TIPOURGENCIA',
-                    'MOTATE','TIPOCAMA','ENVIADOA','MP',
-                    'AFECPRIN','IRA','PLANEDA','SOBRESEDA',
-                    'FECHAINGRESO','HORASESTANCIA','MES_ESTADISTICO',
-                    'HORAINIATE','MININIATE','HORATERATE','MINTERATE'],
-                    dtype={'ID': object,'CLUES': object,'FOLIO': object,'FECHAALTA': object,
-                    'EDAD': object,'CVEEDAD': object,'SEXO': object,'ENTRESIDENCIA': object,
-                    #'MUNRESIDENCIA': object,
-                    'DERHAB': object,'TIPOURGENCIA': np.float64,
-                    'MOTATE': np.float64,'TIPOCAMA': object,'ENVIADOA': object,'MP': object,
-                    'AFECPRIN': object,'IRA': object,'PLANEDA': object,'SOBRESEDA': object,
-                    'FECHAINGRESO': object,'HORASESTANCIA': object,'MES_ESTADISTICO': object,
-                    'HORAINIATE': object,'MININIATE': object,'HORATERATE': object,'MINTERATE': object})
-            print(f'[LOG]: {file} processed.')
-        # code to process the 2012, 2013 & 2014 file (it doesn't cointain headers)
-        elif year in ['2012','2013','2014']:
-            print(f'[LOG]: Processing... {path+file}')
-            urgencies_tmp = pd.read_csv(path+file, sep=";", header=None, 
-                    names=['ID','CLUES','FOLIO','FECHAALTA',
-                    'EDAD','CVEEDAD','SEXO','ENTRESIDENCIA',
-                    'MUNRESIDENCIA','DERHAB','TIPOURGENCIA',
-                    'MOTATE','TIPOCAMA','ENVIADOA','MP',
-                    'AFECPRIN','IRA','PLANEDA','SOBRESEDA',
-                    'FECHAINGRESO','HORASESTANCIA','MES_ESTADISTICO',
-                    'HORAINIATE','MININIATE','HORATERATE','MINTERATE'],
-                    dtype={'ID': object,'CLUES': object,'FOLIO': object,'FECHAALTA': object,
-                    'EDAD': object,'CVEEDAD': object,'SEXO': object,'ENTRESIDENCIA': object,
-                    'MUNRESIDENCIA': object,'DERHAB': object,'TIPOURGENCIA': np.float64,
-                    'MOTATE': np.float64,'TIPOCAMA': object,'ENVIADOA': object,'MP': object,
-                    'AFECPRIN': object,'IRA': object,'PLANEDA': object,'SOBRESEDA': object,
-                    'FECHAINGRESO': object,'HORASESTANCIA': object,'MES_ESTADISTICO': object,
-                    'HORAINIATE': object,'MININIATE': object,'HORATERATE': object,'MINTERATE': object})
-            print(f'[LOG]: {file} processed.')
-        # code to process the 2015 & 2016 file 
-        else:
-            print(f'[LOG]: Processing... {path+file}')
-            urgencies_tmp = pd.read_csv(path+file,
-                    dtype={'ID': object,'CLUES': object,'FOLIO': object,'FECHAALTA': object,
-                    'EDAD': object,'CVEEDAD': object,'SEXO': object,'ENTRESIDENCIA': object,
-                    'MUNRESIDENCIA': object,'DERHAB': object,'TIPOURGENCIA': np.float64,
-                    'MOTATE': np.float64,'TIPOCAMA': object,'ENVIADOA': object,'MP': object,
-                    'AFECPRIN': object,'IRA': object,'PLANEDA': object,'SOBRESEDA': object,
-                    'FECHAINGRESO': object,'HORASESTANCIA': object,'MES_ESTADISTICO': object,
-                    'HORAINIATE': object,'MININIATE': object,'HORATERATE': object,'MINTERATE': object})
-            print(f'[LOG]: {file} processed.')
-        
-        if year in ['2009']:
-            urgencies_tmp['TIPOURGENCIA'] = -1
-        
-        urgencies_tmp = urgencies_tmp[['CLUES','TIPOURGENCIA','MOTATE']]
-        urgencies_tmp['YEAR'] = year
-        urgencies_tmp['tmp_trail'] = 1
-        
-        print(f'[LOG]: Selected: {file}')
-        
-        urgencies = pd.concat([urgencies, urgencies_tmp], ignore_index=True)
-        
-        
-        print(f'[LOG]: Appended: {file}')
-        
-        
-    except:
-        print(f'[LOG]: Error: {file}')
-```
 
 
 ```python
@@ -566,13 +297,6 @@ urgencies.head()
 
 
 
-```python
-#urgencies_cdmx = urgencies[(urgencies['CLUES'].str.contains("DF"))]
-## se cargarán las urgencias de toda la república, y desués al hacer el merge de hospitals se filtrarán los de cdmx
-urgencies_cdmx = urgencies  
-
-```
-
 
 ```python
 urgencies_cdmx_grouped = urgencies_cdmx.groupby(['CLUES','TIPOURGENCIA','MOTATE','YEAR'])["tmp_trail"].count().reset_index(name="count")
@@ -591,110 +315,6 @@ urgencies_cdmx_grouped.head()
 
 
 
-```python
-CatTipoUrgencia = {1:"URGENCIA CALIFICADA", 
-                    2:"URGENCIA NO CALIFICADA", 
-                    3:"APOYO A SERVICIOS DE MEDICINA GENERAL"}
-
-CatMotAtencionUrg = {1:"ACCIDENTES, ENVENENAMIENTO Y VIOLENCIAS", 
-                    2:"MEDICA", 
-                    3:"GINECO-OBSTETRICA", 
-                    4:"PEDIATRICA", 
-                    9:"NO ESPECIFICADO"}
-
-CatMotAtencionUrg_2008 = {1:"(AEV) ACCIDENTES, ENVENENAMIENTO Y VIOLENCIAS",
-                    2:"(UC) URGENCIA CALIFICADA",
-                    3:"(UNC) URGENCIA NO CALIFICADA",
-                    4:"TRABAJO DE PARTO",
-                    9:"NO ESPECIFICADO"}
-
-CatMotAtencionUrg_2009 = {1:"ACCIDENTES, ENVENENAMIENTO Y VIOLENCIAS",
-                    2:"URGENCIA CALIFICADA MEDICA",
-                    3:"URGENCIA CALIFICADA QUIRURGICA",
-                    4:"URGENCIA CALIFICADA GINECO-OBSTETRICA",
-                    5:"URGENCIA CALIFICADA PEDIATRICA",
-                    6:"URGENCIA NO CALIFICADA",
-                    7:"APOYO A SERVICIOS DE MEDICINA GENERAL",
-                    9:"NO ESPECIFICADO"}
-
-```
-
-
-```python
-urgencies_cdmx_grouped['TIPOURGENCIA_V'] = ''
-urgencies_cdmx_grouped['MOTATE_V'] = ''
-
-for key, value in CatTipoUrgencia.items():
-    print(f'{key} - {value}')
-    urgencies_cdmx_grouped['TIPOURGENCIA_V'] = np.where(urgencies_cdmx_grouped['TIPOURGENCIA']==key, 
-                                                        value, urgencies_cdmx_grouped['TIPOURGENCIA_V'])
-    
-print('------')    
-
-for key, value in CatMotAtencionUrg.items():
-    print(f'{key} - {value}')
-    urgencies_cdmx_grouped['MOTATE_V'] = np.where( (urgencies_cdmx_grouped['MOTATE']==key), 
-                                                  value, urgencies_cdmx_grouped['MOTATE_V'])
-
-print('------')    
-
-for key, value in CatMotAtencionUrg_2009.items():
-    print(f'{key} - {value}')
-    urgencies_cdmx_grouped['MOTATE_V'] = np.where((urgencies_cdmx_grouped['MOTATE']==key) & 
-                                                  (urgencies_cdmx_grouped['YEAR']=='2009'), 
-                                                  value, urgencies_cdmx_grouped['MOTATE_V'])
-
-print('------ Fix 2009 - 1 - URGENCIA CALIFICADA')    
-
-
-urgencies_cdmx_grouped['TIPOURGENCIA'] = np.where((urgencies_cdmx_grouped['MOTATE'].isin([2,3,4,5])) &
-                                                    (urgencies_cdmx_grouped['YEAR']=='2009'), 
-                                                    1, urgencies_cdmx_grouped['TIPOURGENCIA'])
-
-print('------ Fix 2009 - 2 - URGENCIA NO CALIFICADA')    
-
-
-urgencies_cdmx_grouped['TIPOURGENCIA'] = np.where((urgencies_cdmx_grouped['MOTATE'] == 6) &
-                                                    (urgencies_cdmx_grouped['YEAR']=='2009'), 
-                                                    2, urgencies_cdmx_grouped['TIPOURGENCIA'])
-
-
-print('------ Fix 2009 - 3 - APOYO A SERVICIOS DE MEDICINA GENERAL')    
-
-
-urgencies_cdmx_grouped['TIPOURGENCIA'] = np.where((urgencies_cdmx_grouped['MOTATE'] == 7) &
-                                                    (urgencies_cdmx_grouped['YEAR']=='2009'), 
-                                                    3, urgencies_cdmx_grouped['TIPOURGENCIA'])
-
-    
-print('------')  
-    
-for key, value in CatTipoUrgencia.items():
-    print(f'{key} - {value}')
-    urgencies_cdmx_grouped['TIPOURGENCIA_V'] = np.where( (urgencies_cdmx_grouped['TIPOURGENCIA']==key) &
-                                                        (urgencies_cdmx_grouped['YEAR']=='2009'), 
-                                                        value, urgencies_cdmx_grouped['TIPOURGENCIA_V'])
-
-print('------ Fix 2009 MOTATE Fix') 
-urgencies_cdmx_grouped['MOTATE_V'] = np.where((urgencies_cdmx_grouped['MOTATE_V']=="URGENCIA CALIFICADA MEDICA") & 
-                                                  (urgencies_cdmx_grouped['YEAR']=='2009'), 
-                                                  "MEDICA", urgencies_cdmx_grouped['MOTATE_V'])
-
-urgencies_cdmx_grouped['MOTATE_V'] = np.where((urgencies_cdmx_grouped['MOTATE_V']=="URGENCIA CALIFICADA QUIRURGICA") & 
-                                                  (urgencies_cdmx_grouped['YEAR']=='2009'), 
-                                                  "QUIRURGICA", urgencies_cdmx_grouped['MOTATE_V'])
-
-urgencies_cdmx_grouped['MOTATE_V'] = np.where((urgencies_cdmx_grouped['MOTATE_V']=="URGENCIA CALIFICADA GINECO-OBSTETRICA") & 
-                                                  (urgencies_cdmx_grouped['YEAR']=='2009'), 
-                                                  "GINECO-OBSTETRICA", urgencies_cdmx_grouped['MOTATE_V'])
-
-urgencies_cdmx_grouped['MOTATE_V'] = np.where((urgencies_cdmx_grouped['MOTATE_V']=="URGENCIA CALIFICADA PEDIATRICA") & 
-                                                  (urgencies_cdmx_grouped['YEAR']=='2009'), 
-                                                  "PEDIATRICA", urgencies_cdmx_grouped['MOTATE_V'])
-```
-
----
-
 
 ```python
 urgencies_cdmx_grouped.head()
@@ -708,12 +328,6 @@ urgencies_cdmx_grouped.head()
 | ASSSA000025  | 1.0    | 4.0  | 2009  | 6              | URGENCIA CALIFICADA | GINECO-OBSTETRICA                       | 
 | ASSSA000025  | 1.0    | 5.0  | 2009  | 2013           | URGENCIA CALIFICADA | PEDIATRICA                              | 
 
-
-```python
-output_file = 'data_output/urgencies_by_date_cat.csv'
-
-urgencies_cdmx_grouped.to_csv(output_file, encoding='utf-8', index=False)
-```
 
 ---
 
@@ -752,10 +366,6 @@ hospital_list_cdmx = hospital_list[(hospital_list['CLAVE DE LA ENTIDAD'] == 9 )]
 | DFCIJ000052          | CIUDAD DE MEXICO    | 9                       | CIJ            | 0 | 
 
 
-```python
-hospital_list_cdmx.head()
-```
-
 ---
 
 
@@ -775,14 +385,6 @@ merged
 | DFSSA000053     | CIUDAD DE MEXICO    | 9         | SSA      | 16       | 1.0    | 5.0  | 2009  | 4         | URGENCIA CALIFICADA    | PEDIATRICA                              |
 | DFSSA000053     | CIUDAD DE MEXICO    | 9         | SSA      | 16       | 2.0    | 6.0  | 2009  | 24029     | URGENCIA NO CALIFICADA | URGENCIA NO CALIFICADA                  |
 | DFSSA000053     | CIUDAD DE MEXICO    | 9         | SSA      | 16       | -1.0   | 9.0  | 2009  | 2         |                        | NO ESPECIFICADO                         |
-
-
-
-```python
-output_file = 'data_output/urgencies_by_date_vs_hospitals.csv'
-
-merged.to_csv(output_file, encoding='utf-8', index=False)
-```
 
 
 ```python
@@ -808,44 +410,15 @@ urgencies_by_year_growth
 
 
 
-```python
-#Files to import
-er_data_to_load = "data_output/urgencies_by_date_cat.csv"
-urgencies_cdmx_grouped = pd.read_csv(er_data_to_load, encoding='latin-1')
-clue_data_to_load = "data_output/urgencies_by_date_vs_hospitals.csv"
-clue = pd.read_csv(clue_data_to_load)
-hospital_data_to_load = "data_output/cdmx_hospitals.csv"
-cdmx = pd.read_csv(hospital_data_to_load)
-input_file_hospitals = 'data_input/hospitals.csv'
-hospital_list = pd.read_csv(input_file_hospitals, encoding='latin-1')
-```
-
-```python
-hospital_list = hospital_list[['CLUES', 'NOMBRE DE LA ENTIDAD', 'NOMBRE DEL MUNICIPIO', 'NOMBRE DE LA LOCALIDAD',
-       'NOMBRE DE LA JURISDICCION', 'CLAVE DE LA INSTITUCION', 'NOMBRE DE TIPOLOGIA', 'CONSULTORIOS DE MED GRAL', 'CONSULTORIOS EN OTRAS AREAS',
-       'TOTAL DE CONSULTORIOS', 'CAMAS EN AREA DE HOS', 'CAMAS EN OTRAS AREAS',
-       'TOTAL DE CAMAS', 'NOMBRE DE LA UNIDAD', 'NIVEL ATENCION']]
-
-hospital_list_cdmx = hospital_list[(hospital_list['NOMBRE DE LA ENTIDAD'] == "CIUDAD DE MEXICO")]
-```
-
-
-```python
-merged = pd.merge(hospital_list_cdmx, urgencies_cdmx_grouped, how="outer", on="CLUES")
-```
-
 
 ```python
 #The same merge as above, but I have conserved columns to be able to analyze data by delegation
 merged = merged[(merged['CLAVE DE LA INSTITUCION'] == "SSA")]
 merged = merged[(merged["NOMBRE DE LA ENTIDAD"] == "CIUDAD DE MEXICO")]
 merged = merged.loc[(merged["TOTAL DE CAMAS"] != 0)]
-merged.count()
-```
-
-```python
 merged.head()
 ```
+
 
 
 | CLUES | NOMBRE DE LA ENTIDAD | NOMBRE DEL MUNICIPIO | NOMBRE DE LA LOCALIDAD | NOMBRE DE LA JURISDICCION | CLAVE DE LA INSTITUCION | NOMBRE DE TIPOLOGIA | CONSULTORIOS DE MED GRAL | CONSULTORIOS EN OTRAS AREAS | TOTAL DE CONSULTORIOS | ...  | CAMAS EN OTRAS AREAS | TOTAL DE CAMAS | NOMBRE DE LA UNIDAD | NIVEL ATENCION                   | TIPOURGENCIA | MOTATE | YEAR | count  | TIPOURGENCIA_V | MOTATE_V    |
@@ -884,21 +457,6 @@ motate_tab
 
 
 ```python
-tps = motate.pivot_table(values ="count", index = "NOMBRE DEL MUNICIPIO", columns = "MOTATE_V", aggfunc='sum')
-tps = tps[["ACCIDENTES, ENVENENAMIENTO Y VIOLENCIAS", "GINECO-OBSTETRICA", "MEDICA", "NO ESPECIFICADO", "PEDIATRICA", "QUIRURGICA", "URGENCIA NO CALIFICADA" ]] 
-tps = tps.div(tps.sum(1), axis=0)
-```
-
-
-```python
-
-motate_gen= pd.DataFrame(merged.groupby(["MOTATE_V"])["count"].sum())
-motate_gen.sort_values("count", ascending=False)
-motate_gen = motate_gen.loc[["ACCIDENTES, ENVENENAMIENTO Y VIOLENCIAS", "GINECO-OBSTETRICA", "MEDICA", "NO ESPECIFICADO", "PEDIATRICA", "QUIRURGICA", "URGENCIA NO CALIFICADA" ]]
-```
-
-
-```python
 #Total emergencies attended cdmx by year
 er_year = merged.groupby(["YEAR"]).sum().reset_index()
 
@@ -917,10 +475,6 @@ er_year
 | 2016    | 4039.0     | 4328.0                | 8367.0               | 29287.0              | 7584.0         | 36871.0      | 435.0  | 774.0 | 936145.0  | 
 
 
-
-```python
-merged_plot = pd.DataFrame(merged.groupby(['NOMBRE DEL MUNICIPIO', 'YEAR'])['count'].sum())
-```
 
 
 ```python
@@ -1154,13 +708,15 @@ Table 1 shows beds per thousand for other countries. ISSSTE and IMSS are compara
 Figure 8 shows the number of medical emergencies by year in Mexico City (only SSA). The demand of emergency attention has been increasing (table 2) and in 2014 SSA hospitals attended a total of 1,011,306 emergencies.
 
 ```python
-ax = er_year.plot.bar(x='YEAR', y='emergencies_day_hospital', rot=0, figsize=(12,8), legend = False)
+
+ax = er_year.plot.bar(x='YEAR', y='count', rot=0, figsize=(12,8), legend = False)
 plt.xticks(tick_locations, er_year["YEAR"])
-plt.title("Mexico City medical emergencies average (hospital/day)").set_size(20)
+plt.title("Mexico City medical emergencies by year").set_size(20)
 plt.ylabel("Number of medical emergencies").set_size(20)
 plt.xlabel("Year").set_size(20)
 plt.grid()
-plt.savefig("figures/emergencies_hospital_day.png")
+plt.tight_layout()
+plt.savefig("figures/emergencies_year.png")
 plt.show()
 plt.close()
 ```
